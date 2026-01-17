@@ -24,13 +24,19 @@ axios.interceptors.request.use(config => {
 axios.interceptors.response.use(response => {
   return response;
 }, error => {
-  if (error.response && (error.response.status === 401 || error.response.status === 403)) {
-    console.warn('Token 失效或无权限，强制跳转登录页');
-    // 清除失效的 Token
+  // [修复] 只有在收到 401 (未授权) 时才强制跳转登录
+  // 403 (禁止访问) 通常表示权限不足，但不代表没登录，不应该直接踢出，除非你确定要这么做
+  if (error.response && error.response.status === 401) {
+    console.warn('Token 失效，强制跳转登录页');
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    // 强制跳转
     window.location.href = '/login';
+  } 
+  // 如果是 403，可以在控制台打印，或者弹窗提示，而不是直接踢出
+  else if (error.response && error.response.status === 403) {
+      console.error('权限不足 (403):', error.config.url);
+      // 可选：如果不希望 403 踢出用户，就注释掉下面这行
+      // window.location.href = '/login'; 
   }
   return Promise.reject(error);
 });

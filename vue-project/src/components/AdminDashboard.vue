@@ -620,13 +620,15 @@ const checkSession = async () => {
       console.log('用户信息加载成功:', userInfo.value)
     } else {
       // 登录状态无效
-      console.warn('未登录或获取用户信息失败')
+      console.warn('后端返回未登录状态:', data)
       router.push('/login')
     }
   } catch (e) {
-    console.error('Session check failed', e)
-    // 如果是 401/403，main.js 里的响应拦截器通常会自动跳转，
-    // 但为了保险，这里也加上跳转
+    console.error('Session 检查失败详细错误:', e)
+    if (e.response && e.response.status !== 401) {
+      alert(`Session 检查失败 (代码 ${e.response.status})，请检查后端控制台`);
+      return;
+    }
     router.push('/login')
   }
 }

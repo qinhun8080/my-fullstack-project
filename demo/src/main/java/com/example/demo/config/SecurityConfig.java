@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod; // [必须] 别漏了这个导入
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -11,8 +12,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.http.SessionCreationPolicy; // 新增
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter; // 新增
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,50 +23,55 @@ import java.util.List;
 public class SecurityConfig {
 
     @Autowired
-    private JwtAuthenticationFilter jwtAuthenticationFilter; // 注入过滤器
+    private JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-                .csrf(csrf -> csrf.disable())
-                // [新增] 设置 Session 策略为无状态 (Stateless)
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .cors(cors -> cors.configurationSource(corsConfigurationSource())) // 应用下面的 CORS 配置
+                .csrf(csrf -> csrf.disable()) // 禁用 CSRF
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // 禁用 Session
                 .authorizeHttpRequests(auth -> auth
+                        // [核心修复 1] 允许所有的 OPTIONS 请求 (解决跨域预检 403 问题)
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+
+                        // 放行静态资源
                         .requestMatchers("/images/**").permitAll()
-                        .requestMatchers("/api/login", "/api/register", "/api/user/register", "/api/reset-password").permitAll() // 确保登录注册接口放行
-                        .anyRequest().authenticated() // [修改] 其他接口必须认证 (以前是 permitAll，现在要改为 authenticated 才能生效拦截)
+
+                        // 放行登录、注册、重置密码接口
+                        .requestMatchers("/api/login", "/api/register", "/api/user/register", "/api/reset-password").permitAll()
+
+                        // 其他所有接口必须认证
+                        .anyRequest().authenticated()
                 )
-                // [新增] 把 JWT 过滤器添加在用户名密码过滤器之前
+                // 把 JWT 过滤器加在前面
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
 
-    // 4. 定义 CORS 配置源 (替代 WebConfig 里的 addCorsMappings)
+    // [核心修复 2] 更宽松的跨域配置
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // 允许的前端地址
-        configuration.setAllowedOrigins(List.of("http://localhost:5173"));
+        // 使用 allowedOriginPatterns 代替 allowedOrigins，允许所有来源 (localhost, 127.0.0.1 等)
+        configuration.setAllowedOriginPatterns(List.of("*"));
 
         // 允许的方法
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
 
-        // 允许的头信息
-        configuration.setAllowedHeaders(List.of("*"));
+        // [核心修复 3] 必须明确允许 Authorization 头，否则前端带 Token 也会被拦截
+        configuration.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "X-Requested-With"));
 
-        // 允许携带凭证 (Cookie)
+        // 允许携带 Cookie/凭证
         configuration.setAllowCredentials(true);
 
-        // 注册配置：对所有路径生效
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
 
-    // 5. 密码加密工具
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
