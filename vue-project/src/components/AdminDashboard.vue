@@ -758,7 +758,7 @@ const handleAvatarChange = (event) => {
 
 // 3. 提交修改 (上传 -> 拿路径 -> 存库)
 const handleSubmit = async () => {
-  // 手动检查验证，方便 alert 提示
+  // 手动检查验证
   if (!editForm.value.nickname) return alert('昵称不能为空')
   if (!editForm.value.phone) return alert('手机号不能为空')
   if (passwordMismatch.value) return alert('两次密码不一致')
@@ -766,73 +766,77 @@ const handleSubmit = async () => {
   try {
     let finalAvatarPath = null
 
-    // A. 如果选择了新文件，先上传
+    // --- A. 图片上传 (已修复，使用 axios) ---
     if (selectedAvatarFile.value) {
       const formData = new FormData()
       formData.append('file', selectedAvatarFile.value)
 
-      const uploadRes = await fetch(`${API_BASE_URL}/upload`, { method: 'POST', body: formData })
-      const uploadData = await uploadRes.json()
+      // ✅ 这里是对的，axios 会自动带 Token 和 Content-Type
+      const uploadRes = await axios.post(`${API_BASE_URL}/upload`, formData);
+      const uploadData = uploadRes.data;
 
       if (uploadData.success) {
-        finalAvatarPath = uploadData.filePath // 获取相对路径 /images/xxx.jpg
+        finalAvatarPath = uploadData.filePath
       } else {
         return alert('图片上传失败: ' + uploadData.message)
       }
     } else {
-      // 没选新图，检查当前是否已经是相对路径，或者保持原样
+      // 没选新图，保持原样
       const current = userInfo.value.avatar
       if (current && current.includes(IMG_BASE_URL)) {
         finalAvatarPath = current.replace(IMG_BASE_URL, '')
       } else {
-        finalAvatarPath = current // 可能是 placeholder
+        finalAvatarPath = current
       }
     }
 
-    // B. 准备提交给数据库的数据
-    // 性别转换: male -> 1, female -> 0, other -> 2
+    // --- B. 准备数据 ---
     let genderInt = 2
     if (editForm.value.gender === 'male') genderInt = 1
     if (editForm.value.gender === 'female') genderInt = 0
 
     const payload = {
-      id: userInfo.value.id, // 必填，MyBatis 根据 ID 更新
+      id: userInfo.value.id,
       nickname: editForm.value.nickname,
       phone: editForm.value.phone,
       gender: genderInt,
-      avatarUrl: finalAvatarPath, // 存入数据库的是相对路径
+      avatarUrl: finalAvatarPath,
       password: editForm.value.password || ''
     }
 
-    // C. 调用更新接口
-    const updateRes = await fetch(`${API_BASE_URL}/admin/update`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    })
-    const updateData = await updateRes.json()
+    // --- C. 调用更新接口 (🔴 必须也改成 axios) ---
+    // ❌ 原代码使用 fetch 会导致 403，因为没有 Token
+    // const updateRes = await fetch(...) 
+
+    // ✅ 修正为 axios.post，会自动携带 Token，并且自动处理 JSON
+    const updateRes = await axios.post(`${API_BASE_URL}/admin/update`, payload);
+    const updateData = updateRes.data;
 
     if (updateData.success) {
-      // D. 更新成功，刷新本地视图
+      // --- D. 更新本地视图 ---
       userInfo.value.nickname = editForm.value.nickname
       userInfo.value.phone = editForm.value.phone
       userInfo.value.gender = editForm.value.gender
 
-      // 拼接完整路径用于显示
       if (finalAvatarPath) {
         userInfo.value.avatar = resolveAvatarUrl(finalAvatarPath)
       }
 
       alert('个人信息更新成功！')
       showEditUserModal.value = false
-      selectedAvatarFile.value = null // 清空选择
+      selectedAvatarFile.value = null
     } else {
       alert('更新失败: ' + updateData.message)
     }
 
   } catch (error) {
     console.error('更新错误:', error)
-    alert('请求失败，请检查后端服务是否启动')
+    // axios 的错误对象里通常有 response
+    if (error.response && error.response.status === 403) {
+      alert('请求失败：权限不足或登录已过期 (403)');
+    } else {
+      alert('请求失败，请检查后端服务是否启动');
+    }
   }
 }
 
