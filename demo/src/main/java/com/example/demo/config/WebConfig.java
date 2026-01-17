@@ -10,8 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     public static final String UPLOAD_PATH = "D:/rear/images/";
     public static final String ACCESS_PATH_PATTERN = "/images/**";
 
-    // 1. 【删除】这里的 addCorsMappings 方法
-    // 因为我们要把它搬家到 SecurityConfig 里去
+    //提交测试
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
