@@ -315,3 +315,41 @@ Unconditional classes:
 
 
 
+2026-01-17T16:59:10.446+08:00  INFO 2000 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-01-17T16:59:10.446+08:00  INFO 2000 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-01-17T16:59:10.446+08:00  INFO 2000 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-01-17T16:59:10.667+08:00  WARN 2000 --- [demo] [http-nio-8081-exec-2] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2026-01-17T16:59:10.669+08:00  INFO 2000 --- [demo] [http-nio-8081-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-17T16:59:11.314+08:00  INFO 2000 --- [demo] [http-nio-8081-exec-2] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@227d6e1f
+2026-01-17T16:59:11.314+08:00  INFO 2000 --- [demo] [http-nio-8081-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-17T16:59:11.327+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2026-01-17T16:59:11.361+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: admin(String)
+2026-01-17T16:59:11.392+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2026-01-17T16:59:11.408+08:00  WARN 2000 --- [demo] [http-nio-8081-exec-2] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-01-17T16:59:19.196+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2026-01-17T16:59:19.196+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: admin(String)
+2026-01-17T16:59:19.196+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2026-01-17T16:59:19.196+08:00  WARN 2000 --- [demo] [http-nio-8081-exec-4] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-01-17T16:59:31.543+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2026-01-17T16:59:31.543+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: admin(String)
+2026-01-17T16:59:31.543+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2026-01-17T16:59:31.543+08:00  WARN 2000 --- [demo] [http-nio-8081-exec-6] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-01-17T16:59:38.718+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2026-01-17T16:59:38.718+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: admin(String)
+2026-01-17T16:59:38.718+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2026-01-17T16:59:38.718+08:00  WARN 2000 --- [demo] [http-nio-8081-exec-8] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2026-01-17T17:00:06.606+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) AS total FROM users WHERE (username = ?)
+2026-01-17T17:00:06.606+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.selectCount  : ==> Parameters: 123(String)
+2026-01-17T17:00:06.618+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.selectCount  : <==      Total: 1
+2026-01-17T17:00:06.735+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.insert       : ==>  Preparing: INSERT INTO users ( username, role, nickname, password_hash, gender, phone_number, birthday, avatar_url ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ? )
+2026-01-17T17:00:06.738+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.insert       : ==> Parameters: 123(String), admin(String), 123(String), $2a$10$IpA.YTkh0NeSrShXQ3h0tur.g14c108F62oVJl0wzJcO3lVDv4LB6(String), 1(Integer), 1234555(String), 2026-01-03(String), /images/default-avatar.png(String)
+2026-01-17T17:00:06.746+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.insert       : <==    Updates: 1
+2026-01-17T17:00:35.585+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2026-01-17T17:00:35.585+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: 123(String)
+2026-01-17T17:00:35.585+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2026-01-17T17:00:45.027+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2026-01-17T17:00:45.028+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: 123(String)
+2026-01-17T17:00:45.030+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2026-01-17T17:00:45.112+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.updateById   : ==>  Preparing: UPDATE users SET username=?, role=?, nickname=?, password_hash=?, gender=?, phone_number=?, birthday=?, avatar_url=?, last_login_time=? WHERE id=?
+2026-01-17T17:00:45.112+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.updateById   : ==> Parameters: 123(String), admin(String), 123(String), $2a$10$IpA.YTkh0NeSrShXQ3h0tur.g14c108F62oVJl0wzJcO3lVDv4LB6(String), 1(Integer), 1234555(String), 2026-01-03(String), /images/default-avatar.png(String), 2026-01-17 17:00:45.096(Timestamp), 3(Integer)
+2026-01-17T17:00:45.128+08:00 DEBUG 2000 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.updateById   : <==    Updates: 1
