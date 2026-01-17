@@ -10,6 +10,9 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.http.SessionCreationPolicy; // 新增
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter; // 新增
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,25 +21,23 @@ import java.util.List;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    @Autowired
+    private JwtAuthenticationFilter jwtAuthenticationFilter; // 注入过滤器
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-                // 1. 开启 CORS，并告诉它去使用 corsConfigurationSource() 这个 Bean 的配置
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-
-                // 2. 关闭 CSRF (前后端分离必须关)
                 .csrf(csrf -> csrf.disable())
-
-                // 3. 配置路径权限
+                // [新增] 设置 Session 策略为无状态 (Stateless)
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        // 允许所有人访问图片 (必须与 WebConfig 中的路径一致)
                         .requestMatchers("/images/**").permitAll()
-                        // 允许所有人访问 API (登录、注册等)
-                        // 如果你想更严格，可以只放行 "/api/login", "/api/register"
-                        .requestMatchers("/api/**").permitAll()
-                        // 其他请求默认允许 (因为你是自己写登录逻辑，不是用 Spring Security 的拦截)
-                        .anyRequest().permitAll()
-                );
+                        .requestMatchers("/api/login", "/api/register", "/api/user/register", "/api/reset-password").permitAll() // 确保登录注册接口放行
+                        .anyRequest().authenticated() // [修改] 其他接口必须认证 (以前是 permitAll，现在要改为 authenticated 才能生效拦截)
+                )
+                // [新增] 把 JWT 过滤器添加在用户名密码过滤器之前
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }

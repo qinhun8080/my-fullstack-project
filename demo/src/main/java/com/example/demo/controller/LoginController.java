@@ -4,6 +4,7 @@ import com.example.demo.model.Admin;
 import com.example.demo.model.User;
 import com.example.demo.service.AdminService;
 import com.example.demo.service.UserService;
+import com.example.demo.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,44 +24,31 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/login")
-    public Map<String, Object> handleLogin(
-            @RequestBody Map<String, String> credentials,
-            HttpServletResponse response,
-            HttpSession session) {
+    @Autowired
+    private JwtUtils jwtUtils;
 
-        // [修改] 获取前端传来的 username (之前可能是作为 id 使用，现在明确它是 username)
+    @PostMapping("/login")
+    public Map<String, Object> handleLogin(@RequestBody Map<String, String> credentials) {
+        // 移除 HttpServletResponse response, HttpSession session 参数
+
         String username = credentials.get("username");
         String password = credentials.get("password");
-        boolean rememberMe = Boolean.parseBoolean(credentials.get("rememberMe"));
 
-        // [修改] 调用 Service，现在传入的是 username
         Admin adminUser = adminService.login(username, password);
 
         if (adminUser != null) {
-            // 登录成功，Session 中保存用户名和 ID (ID用于后续的数据库更新操作)
-            session.setAttribute("user", adminUser.getUsername());
-            session.setAttribute("userid", adminUser.getId());
-            session.setMaxInactiveInterval(30 * 60);
-
-            if (rememberMe) {
-                // Cookie 中保存 username
-                setCookie(response, "remember-user", username, 7 * 24 * 60 * 60);
-                setCookie(response, "remember-pass", password, 7 * 24 * 60 * 60);
-            } else {
-                setCookie(response, "remember-user", null, 0);
-                setCookie(response, "remember-pass", null, 0);
-            }
+            // [修改] 生成 Token
+            String token = jwtUtils.generateToken(adminUser.getUsername(), adminUser.getId());
 
             adminUser.setPassword(null);
-
             Map<String, Object> result = new HashMap<>();
             result.put("success", true);
             result.put("message", "登录成功！");
+            result.put("token", token); // [关键] 返回 Token
             result.put("userData", adminUser);
-
             return result;
         } else {
+            // ... 失败逻辑不变
             Map<String, Object> result = new HashMap<>();
             result.put("success", false);
             result.put("message", "用户名或密码错误");
@@ -68,26 +56,25 @@ public class LoginController {
         }
     }
 
-    // ... 下面的 handleRegister 和 checkSessionStatus 不需要修改 ...
-    // Session 检查依然建议通过 Session 中存储的 userid 来查库 (这是最稳妥的)，所以下面的代码保持不变即可。
+    // [修改] 替代原有的 session-status，改为获取当前用户信息的接口
+    @GetMapping("/user/me")
+    public Map<String, Object> getUserInfo(@RequestHeader(value = "Authorization", required = false) String authHeader) {
+        Map<String, Object> result = new HashMap<>();
 
-    @GetMapping("/session-status")
-    public Map<String, Object> checkSessionStatus(HttpSession session) {
-        Object useridObj = session.getAttribute("userid");
+        // 由于有 Filter 拦截，能进到这里说明 Token 基本是有效的
+        // 你可以通过 SecurityContextHolder 获取用户信息
+        // 或者简单解析 Token
 
-        if (useridObj != null) {
-            Integer userid = (Integer) useridObj;
-            Admin currentUser = adminService.getById(userid); // 依然使用 ID 获取详情，没问题
-
-            if (currentUser != null) {
-                currentUser.setPassword(null);
-                Map<String, Object> result = new HashMap<>();
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
+            String token = authHeader.substring(7);
+            if (jwtUtils.validateToken(token)) {
+                // 这里为了简单直接返回成功，实际可以根据 token 里的 username 查数据库
                 result.put("loggedIn", true);
-                result.put("userData", currentUser);
+                result.put("username", jwtUtils.getUsernameFromToken(token));
                 return result;
             }
         }
-        Map<String, Object> result = new HashMap<>();
+
         result.put("loggedIn", false);
         return result;
     }
