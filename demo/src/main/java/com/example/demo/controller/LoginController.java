@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.example.demo.model.Admin;
 import com.example.demo.model.User;
 import com.example.demo.service.AdminService;
@@ -29,26 +30,27 @@ public class LoginController {
 
     @PostMapping("/login")
     public Map<String, Object> handleLogin(@RequestBody Map<String, String> credentials) {
-        // 移除 HttpServletResponse response, HttpSession session 参数
-
         String username = credentials.get("username");
         String password = credentials.get("password");
 
+        // 1. 验证账号密码
         Admin adminUser = adminService.login(username, password);
 
         if (adminUser != null) {
-            // [修改] 生成 Token
+            // 2. 生成 JWT Token
             String token = jwtUtils.generateToken(adminUser.getUsername(), adminUser.getId());
 
+            // 3. 擦除密码，准备返回数据
             adminUser.setPassword(null);
+
             Map<String, Object> result = new HashMap<>();
             result.put("success", true);
             result.put("message", "登录成功！");
-            result.put("token", token); // [关键] 返回 Token
-            result.put("userData", adminUser);
+            result.put("token", token); // [关键] 返回 Token 给前端存入 localStorage
+            result.put("userData", adminUser); // 返回用户信息，方便前端展示名字头像
+
             return result;
         } else {
-            // ... 失败逻辑不变
             Map<String, Object> result = new HashMap<>();
             result.put("success", false);
             result.put("message", "用户名或密码错误");
@@ -56,25 +58,40 @@ public class LoginController {
         }
     }
 
-    // [修改] 替代原有的 session-status，改为获取当前用户信息的接口
+    /**
+     * [修改] 获取当前用户信息接口 (替代原有的 session-status)
+     * 前端 checkSession 会调用此接口，需在 Header 带上 Authorization: Bearer <token>
+     */
     @GetMapping("/user/me")
     public Map<String, Object> getUserInfo(@RequestHeader(value = "Authorization", required = false) String authHeader) {
         Map<String, Object> result = new HashMap<>();
 
-        // 由于有 Filter 拦截，能进到这里说明 Token 基本是有效的
-        // 你可以通过 SecurityContextHolder 获取用户信息
-        // 或者简单解析 Token
-
+        // 1. 校验 Token 格式
         if (authHeader != null && authHeader.startsWith("Bearer ")) {
             String token = authHeader.substring(7);
+
+            // 2. 校验 Token 有效性
             if (jwtUtils.validateToken(token)) {
-                // 这里为了简单直接返回成功，实际可以根据 token 里的 username 查数据库
-                result.put("loggedIn", true);
-                result.put("username", jwtUtils.getUsernameFromToken(token));
-                return result;
+                String username = jwtUtils.getUsernameFromToken(token);
+
+                // 3. [关键修正] 查询数据库获取完整的用户信息
+                // 因为 adminService 继承了 ServiceImpl，可以直接使用 getOne + Wrapper 查询
+                LambdaQueryWrapper<Admin> queryWrapper = new LambdaQueryWrapper<>();
+                queryWrapper.eq(Admin::getUsername, username);
+                Admin admin = adminService.getOne(queryWrapper);
+
+                if (admin != null) {
+                    admin.setPassword(null); // 擦除密码
+
+                    result.put("loggedIn", true);
+                    result.put("username", username);
+                    result.put("userData", admin); // [重点] 返回完整对象，前端 checkSession 需要读取 avatarUrl, nickname 等
+                    return result;
+                }
             }
         }
 
+        // 验证失败或无 Token
         result.put("loggedIn", false);
         return result;
     }

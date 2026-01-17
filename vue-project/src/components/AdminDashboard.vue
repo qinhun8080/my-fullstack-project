@@ -443,6 +443,7 @@
 </template>
 
 <script setup>
+import axios from 'axios'
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 
@@ -490,45 +491,44 @@ const deviceList = ref([])
 let dataTimer = null
 
 // --- 模拟获取设备数据 ---
+// --- 模拟获取设备数据 (修改后) ---
 const fetchDeviceData = async () => {
-  // [新增] 获取当前管理员的时间作为模拟数据
-  // 如果 userInfo 数据还没加载回来，就默认显示当前时间
+  // 获取当前管理员的时间作为模拟数据
   const adminTime = userInfo.value.lastLoginTime || new Date().toLocaleString();
 
-  // 初始化一个 liveDevice 对象
+  // 初始化一个 liveDevice 对象 (默认离线)
   let liveDevice = {
     id: 'CS-001',
     name: 'CS-001 ',
     status: 'offline',
     location: 'A栋-301室',
-
-    // [修改] 这里不再是 'N/A'，而是绑定管理员的最后登录时间
-    lastOfflineTime: adminTime,
-
+    lastOfflineTime: adminTime, // 绑定管理员最后登录时间
     temperature: 'N/A',
     humidity: 'N/A',
     distance: 'N/A'
   }
 
   try {
-    const response = await fetch(`${API_BASE_URL}/device-data`)
-    if (response.ok) {
-      const data = await response.json()
-      liveDevice.status = data.deviceStatus === '在线' ? 'online' : 'offline'
+    // [修改] 使用 axios.get，路径带上 /api
+    const response = await axios.get('/api/device-data');
+    const data = response.data; // axios 的响应体在 .data 中
 
-      // 如果你需要在线时也更新这个时间，可以在这里继续赋值，
-      // 但根据你的需求“离线时间”，通常离线状态下这个字段才有意义。
-      liveDevice.temperature = data.temp !== 'N/A' && data.temp !== 'ERR' ? `${data.temp}°C` : 'N/A'
-      liveDevice.humidity = data.humi !== 'N/A' && data.humi !== 'ERR' ? `${data.humi}%` : 'N/A'
-      liveDevice.distance = data.distance !== 'N/A' && data.distance !== 'ERR' ? data.distance : 'N/A'
-    }
+    // 更新设备状态
+    liveDevice.status = data.deviceStatus === '在线' ? 'online' : 'offline';
+
+    // 只有非 N/A 且非 ERR 时才添加单位
+    liveDevice.temperature = (data.temp !== 'N/A' && data.temp !== 'ERR') ? `${data.temp}°C` : 'N/A';
+    liveDevice.humidity = (data.humi !== 'N/A' && data.humi !== 'ERR') ? `${data.humi}%` : 'N/A';
+    liveDevice.distance = (data.distance !== 'N/A' && data.distance !== 'ERR') ? data.distance : 'N/A';
+
   } catch (error) {
+    // 这里的 error 包含了网络错误或 4xx/5xx 响应错误
     console.error("获取设备数据失败:", error);
   }
 
+  // 更新列表：liveDevice 使用实时数据，其他为模拟数据
   deviceList.value = [
     liveDevice,
-    // 其他模拟设备也可以统一加上这个逻辑，或者保持原样
     { id: 'DEV-002', name: 'CS-002', status: 'offline', location: 'B栋-机房', lastOfflineTime: adminTime, temperature: 'N/A', humidity: 'N/A' },
     { id: 'DEV-003', name: 'CS-003', status: 'online', location: 'C栋-全区域', lastOfflineTime: '2025-10-22 11:00:00', temperature: '23.8°C', humidity: '52%' },
     { id: 'DEV-004', name: 'CS-004', status: 'online', location: '园区-南门', lastOfflineTime: '2025-10-20 01:00:00', temperature: '22.0°C', humidity: '60%' },
@@ -545,24 +545,22 @@ const showUserEditModal = ref(false)
 const userEditForm = ref({ id: '', username: '', nickname: '', gender: '', phone: '', password: '' })
 const addUserForm = ref({ username: '', nickname: '', password: '', confirmPassword: '', gender: '', phone: '' })
 // --- 修改 fetchUserList 函数 ---
+// --- 获取用户列表 (修改后) ---
 const fetchUserList = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/admin/user-list`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-        // 如果你的后端开启了Spring Security拦截，这里可能需要携带 token
-        // 'Authorization': 'Bearer ' + token 
-      }
-    });
+    // [修改] 
+    // 1. 使用 axios.get (后端 AdminController 是 @GetMapping)
+    // 2. 路径补全为 /api/admin/user-list (因为 baseURL 是 localhost:8081)
+    // 3. 不再需要手动写 headers，拦截器会自动带上 Token
+    const response = await axios.get('/api/admin/user-list');
 
-    const resData = await response.json();
+    const resData = response.data;
 
     if (resData.success) {
       // 这里的 resData.data 是后端传来的 Admin 对象数组
-      // 我们需要处理一下数据格式以匹配前端的显示逻辑
+      // 需要映射为前端表格所需的格式
       userList.value = resData.data.map(u => {
-        // 1. 性别转换逻辑
+        // 1. 性别转换逻辑 (后端: 1男, 0女 -> 前端: male, female)
         let genderStr = 'other';
         if (u.gender === 1) genderStr = 'male';
         if (u.gender === 0) genderStr = 'female';
@@ -574,7 +572,7 @@ const fetchUserList = async () => {
           nickname: u.nickname || '未设置昵称',
           phone: u.phone || '暂无',
           gender: genderStr,
-          // 如果需要编辑功能，保存原始对象很有用
+          // 保存原始对象，方便编辑时回显数据
           originalData: u
         };
       });
@@ -589,22 +587,29 @@ const fetchUserList = async () => {
 
 
 // --- [核心] 检查 Session 并加载真实用户信息 ---
+// 务必确保在 <script setup> 顶部导入了 axios
+// import axios from 'axios' 
+
 const checkSession = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/session-status`, { credentials: 'include' })
-    const data = await response.json()
+    // [修改 1] 改用 axios.get，不用手动传 credentials，拦截器会自动处理 Token
+    // [修改 2] 接口地址改为 /user/me (对应后端 LoginController)
+    const response = await axios.get('/api/user/me')
+    const data = response.data
 
+    // [注意] 这里假设你的后端 /user/me 接口已经按照建议修改，
+    // 返回结构包含了 userData: { id, username, ... }
     if (data.loggedIn && data.userData) {
       const u = data.userData
 
-      // 1. 处理头像路径 (后端传来的是相对路径 /images/xxx.jpg)
+      // 1. 处理头像路径
       const displayAvatar = resolveAvatarUrl(u.avatarUrl)
 
       // 2. 更新本地状态
       userInfo.value = {
         id: u.id,
         username: u.username,
-        nickname: u.nickname || '未设置昵称',
+        nickname: u.nickname || u.username || '未设置昵称',
         phone: u.phone,
         // 性别转换: 后端 1->male, 0->female
         gender: u.gender === 1 ? 'male' : (u.gender === 0 ? 'female' : 'other'),
@@ -614,10 +619,14 @@ const checkSession = async () => {
       }
       console.log('用户信息加载成功:', userInfo.value)
     } else {
+      // 登录状态无效
+      console.warn('未登录或获取用户信息失败')
       router.push('/login')
     }
   } catch (e) {
     console.error('Session check failed', e)
+    // 如果是 401/403，main.js 里的响应拦截器通常会自动跳转，
+    // 但为了保险，这里也加上跳转
     router.push('/login')
   }
 }
