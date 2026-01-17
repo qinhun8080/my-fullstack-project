@@ -1,0 +1,64 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: demo
+
+  # === 1. devtools 配置 ===
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/main/java
+
+  # === 2. MVC 配置 ===
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+  # === [新增] 文件上传大小限制 (解决 413 报错) ===
+  servlet:
+    multipart:
+      max-file-size: 10MB      # 单个文件最大限制
+      max-request-size: 20MB   # 整个请求最大限制
+
+  # === 3. 数据源配置 ===
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 请确保数据库 coursedb 存在
+    url: jdbc:mysql://localhost:3306/coursedb?useSSL=true&serverTimezone=Asia/Shanghai&useJDBCCompliantTimezoneShift=true
+    username: root
+    password: 123456
+    # hikariCP 连接池配置
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 60
+      max-lifetime: 60000
+      minimum-idle: 10
+      validation-timeout: 3000
+      idle-timeout: 60000
+      read-only: false
+      login-timeout: 5
+
+# === 自定义配置：OneNET ===
+onet:
+  api-url: https://iot-api.heclouds.com
+  author-key: J9Bk/4m2A4hXLzNHkCwLEmxbN3clVcFwZHK01n38zDNWNWV0GuaoeFVy8Hwzehcw
+  user-id: 460167
+  version: 2022-05-01
+  product-id: 3M2EsOH2K8
+  device-name: CS-001
+
+# === MyBatis-Plus 配置 ===
+mybatis-plus:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mapper/*.xml
+
+# === 日志配置 ===
+logging:
+  level:
+    root: INFO
+    com.example.demo.mapper.AdminMapper: DEBUG
+  file:
+    name: myapp.log
+    path: c:\javaLog

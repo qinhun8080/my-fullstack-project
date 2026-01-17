@@ -1,0 +1,1237 @@
+2025-12-25T22:08:48.353+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 18852 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:08:48.358+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:08:48.399+08:00  INFO 18852 --- [demo] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-25T22:08:48.399+08:00  INFO 18852 --- [demo] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-25T22:08:49.608+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:08:49.612+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:08:49.615+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:08:49.622+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:08:49.622+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:08:49.652+08:00  INFO 18852 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:08:49.652+08:00  INFO 18852 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1252 ms
+2025-12-25T22:08:50.163+08:00  WARN 18852 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6bfb28d4-951c-4456-ad9c-40cd1c239b97
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:08:50.168+08:00  INFO 18852 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:08:50.437+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:08:50.625+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:08:50.630+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 2.581 seconds (process running for 3.163)
+2025-12-25T22:12:09.628+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:12:09.628+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:12:09.629+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-25T22:12:11.279+08:00  WARN 18852 --- [demo] [http-nio-8081-exec-3] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-12-25T22:12:11.279+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-25T22:12:11.419+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-3] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2c52967f
+2025-12-25T22:12:11.420+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-25T22:12:33.024+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (username = ?)
+2025-12-25T22:12:33.031+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: 123(String)
+2025-12-25T22:12:33.047+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:12:36.988+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (username = ?)
+2025-12-25T22:12:36.988+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: 123(String)
+2025-12-25T22:12:36.989+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:13:49.409+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (username = ?)
+2025-12-25T22:13:49.409+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: 2(String)
+2025-12-25T22:13:49.410+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:13:56.957+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-7] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (username = ?)
+2025-12-25T22:13:56.958+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-7] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: 2(String)
+2025-12-25T22:13:56.960+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-7] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:13:58.150+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectById   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE id=?
+2025-12-25T22:13:58.152+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectById   : ==> Parameters: -1518219262(Integer)
+2025-12-25T22:13:58.154+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectById   : <==      Total: 1
+2025-12-25T22:13:58.194+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectById   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE id=?
+2025-12-25T22:13:58.198+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectById   : ==> Parameters: -1518219262(Integer)
+2025-12-25T22:13:58.201+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-2] c.e.demo.mapper.AdminMapper.selectById   : <==      Total: 1
+2025-12-25T22:13:58.210+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (role = ?) ORDER BY id DESC
+2025-12-25T22:13:58.211+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: user(String)
+2025-12-25T22:13:58.222+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 4
+2025-12-25T22:16:31.696+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (username = ?)
+2025-12-25T22:16:31.698+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: w(String)
+2025-12-25T22:16:31.700+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:16:31.700+08:00  WARN 18852 --- [demo] [http-nio-8081-exec-5] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2025-12-25T22:16:35.973+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (username = ?)
+2025-12-25T22:16:35.973+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: w(String)
+2025-12-25T22:16:35.976+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:16:35.977+08:00  WARN 18852 --- [demo] [http-nio-8081-exec-8] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2025-12-25T22:16:43.714+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (username = ?)
+2025-12-25T22:16:43.714+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: 123(String)
+2025-12-25T22:16:43.716+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:20:28.831+08:00  INFO 18852 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25T22:20:28.873+08:00  INFO 18852 --- [demo] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-25T22:20:28.879+08:00  INFO 18852 --- [demo] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-25T22:20:29.020+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 18852 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:20:29.020+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:20:29.487+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:20:29.490+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:20:29.491+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:20:29.492+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:20:29.494+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:20:29.521+08:00  INFO 18852 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:20:29.521+08:00  INFO 18852 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 496 ms
+2025-12-25T22:20:29.729+08:00  WARN 18852 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'deviceController': Resolution of declared constructors on bean Class [com.example.demo.controller.DeviceController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@380ae4eb] failed
+2025-12-25T22:20:29.729+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:20:29.777+08:00  INFO 18852 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:20:29.803+08:00 ERROR 18852 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'deviceController': Resolution of declared constructors on bean Class [com.example.demo.controller.DeviceController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@380ae4eb] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1314) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1209) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/OneNetDataService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3549) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2727) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 21 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.OneNetDataService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 25 common frames omitted
+
+2025-12-25T22:20:31.267+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 18852 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:20:31.267+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:20:31.436+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:20:31.437+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:20:31.437+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:20:31.438+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:20:31.438+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:20:31.451+08:00  INFO 18852 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:20:31.451+08:00  INFO 18852 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 182 ms
+2025-12-25T22:20:31.516+08:00  WARN 18852 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'deviceController': Resolution of declared constructors on bean Class [com.example.demo.controller.DeviceController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@4aacb5f3] failed
+2025-12-25T22:20:31.516+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:20:31.543+08:00  INFO 18852 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:20:31.544+08:00 ERROR 18852 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'deviceController': Resolution of declared constructors on bean Class [com.example.demo.controller.DeviceController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@4aacb5f3] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1314) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1209) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/OneNetDataService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3549) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2727) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 21 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.OneNetDataService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 25 common frames omitted
+
+2025-12-25T22:20:46.175+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 18852 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:20:46.175+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:20:46.395+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:20:46.396+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:20:46.397+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:20:46.397+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:20:46.397+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:20:46.411+08:00  INFO 18852 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:20:46.411+08:00  INFO 18852 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 234 ms
+2025-12-25T22:20:46.513+08:00  WARN 18852 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'deviceController': Resolution of declared constructors on bean Class [com.example.demo.controller.DeviceController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@6a3cc4c5] failed
+2025-12-25T22:20:46.513+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:20:46.553+08:00  INFO 18852 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:20:46.553+08:00 ERROR 18852 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'deviceController': Resolution of declared constructors on bean Class [com.example.demo.controller.DeviceController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@6a3cc4c5] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1314) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1209) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/OneNetDataService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3549) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2727) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 21 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.OneNetDataService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 25 common frames omitted
+
+2025-12-25T22:20:51.086+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 18852 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:20:51.086+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:20:51.322+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:20:51.322+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:20:51.322+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:20:51.322+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:20:51.322+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:20:51.338+08:00  INFO 18852 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:20:51.338+08:00  INFO 18852 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 250 ms
+2025-12-25T22:20:51.519+08:00  WARN 18852 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 97ecae02-9380-402b-9d35-0bfd21c4247f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:20:51.520+08:00  INFO 18852 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:20:51.623+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:20:51.654+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:20:51.654+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.617 seconds (process running for 724.201)
+2025-12-25T22:20:51.654+08:00  INFO 18852 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:20:54.340+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:20:54.340+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:20:54.353+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:21:28.605+08:00  INFO 18852 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25T22:21:28.684+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 18852 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:21:28.684+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:21:28.785+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:21:28.785+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:21:28.785+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:21:28.786+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:21:28.786+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:21:28.795+08:00  INFO 18852 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:21:28.795+08:00  INFO 18852 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 111 ms
+2025-12-25T22:21:28.870+08:00  WARN 18852 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 66fa6eb2-5794-4df4-ad68-4d2c8b78b272
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:21:28.870+08:00  INFO 18852 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:21:28.921+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:21:28.940+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:21:28.942+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.27 seconds (process running for 761.475)
+2025-12-25T22:21:28.943+08:00  INFO 18852 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:21:29.350+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:21:29.350+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:21:29.351+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-12-25T22:21:39.153+08:00  WARN 18852 --- [demo] [http-nio-8081-exec-9] com.zaxxer.hikari.HikariConfig           : HikariPool-2 - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-12-25T22:21:39.153+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-12-25T22:21:39.172+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-9] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@373f7ee9
+2025-12-25T22:21:39.172+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-12-25T22:21:39.172+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectById   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE id=?
+2025-12-25T22:21:39.172+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectById   : ==> Parameters: -1518219262(Integer)
+2025-12-25T22:21:39.176+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectById   : <==      Total: 1
+2025-12-25T22:21:39.193+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.selectById   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE id=?
+2025-12-25T22:21:39.195+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.selectById   : ==> Parameters: -1518219262(Integer)
+2025-12-25T22:21:39.199+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-10] c.e.demo.mapper.AdminMapper.selectById   : <==      Total: 1
+2025-12-25T22:21:39.206+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url FROM users WHERE (role = ?) ORDER BY id DESC
+2025-12-25T22:21:39.207+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: user(String)
+2025-12-25T22:21:39.210+08:00 DEBUG 18852 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 4
+2025-12-25T22:21:39.515+08:00  INFO 18852 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25T22:21:39.534+08:00  INFO 18852 --- [demo] [Thread-52] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-12-25T22:21:39.573+08:00  INFO 18852 --- [demo] [Thread-52] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2025-12-25T22:21:39.661+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 18852 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:21:39.661+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:21:39.909+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:21:39.909+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:21:39.909+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:21:39.909+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:21:39.909+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:21:39.927+08:00  INFO 18852 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:21:39.927+08:00  INFO 18852 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 266 ms
+2025-12-25T22:21:40.003+08:00  WARN 18852 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'deviceController': Resolution of declared constructors on bean Class [com.example.demo.controller.DeviceController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@429c01eb] failed
+2025-12-25T22:21:40.003+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:21:40.050+08:00  INFO 18852 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:21:40.050+08:00 ERROR 18852 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'deviceController': Resolution of declared constructors on bean Class [com.example.demo.controller.DeviceController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@429c01eb] failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:384) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1314) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1209) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/OneNetDataService
+	at java.base/java.lang.Class.getDeclaredConstructors0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredConstructors(Class.java:3549) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredConstructors(Class.java:2727) ~[na:na]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:379) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 21 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.OneNetDataService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 25 common frames omitted
+
+2025-12-25T22:21:42.540+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 18852 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:21:42.541+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:21:42.918+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:21:42.922+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:21:42.923+08:00  INFO 18852 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:21:42.923+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:21:42.923+08:00  INFO 18852 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:21:42.949+08:00  INFO 18852 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:21:42.949+08:00  INFO 18852 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 408 ms
+2025-12-25T22:21:43.214+08:00  WARN 18852 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b816a23d-bb39-4ff1-9097-5ec98d49bfc7
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:21:43.215+08:00  INFO 18852 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:21:43.358+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:21:43.414+08:00  INFO 18852 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:21:43.418+08:00  INFO 18852 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.913 seconds (process running for 775.948)
+2025-12-25T22:21:43.423+08:00  INFO 18852 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:21:44.204+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:21:44.204+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:21:44.204+08:00  INFO 18852 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:21:49.278+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:21:49.279+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:21:49.304+08:00  INFO 15120 --- [demo] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-25T22:21:49.304+08:00  INFO 15120 --- [demo] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-25T22:21:50.252+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:21:50.256+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:21:50.258+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:21:50.264+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:21:50.265+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:21:50.294+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:21:50.294+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 990 ms
+2025-12-25T22:21:50.647+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5411ca4a-a060-4bf8-8b09-dbb027916f20
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:21:50.650+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:21:50.870+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:21:50.987+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:21:50.991+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 1.947 seconds (process running for 2.314)
+2025-12-25T22:21:51.051+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:21:51.051+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:21:51.051+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:22:02.690+08:00  WARN 15120 --- [demo] [http-nio-8081-exec-6] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-12-25T22:22:02.696+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-12-25T22:22:02.992+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-6] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@66b10e3
+2025-12-25T22:22:02.994+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-12-25T22:36:15.323+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25T22:36:15.339+08:00  INFO 15120 --- [demo] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-12-25T22:36:15.342+08:00  INFO 15120 --- [demo] [Thread-5] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-12-25T22:36:15.415+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:15.415+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:15.637+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:15.637+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:15.638+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:15.638+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:15.638+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:15.650+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:15.650+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 233 ms
+2025-12-25T22:36:15.786+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 06ed5c83-1e42-48ef-95ec-682d1ff68d79
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:36:15.787+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:36:15.853+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:36:15.875+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:36:15.878+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.487 seconds (process running for 866.966)
+2025-12-25T22:36:15.881+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:36:18.293+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25T22:36:18.402+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:18.402+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:18.676+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:18.677+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:18.677+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:18.677+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:18.677+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:18.699+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:18.699+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 297 ms
+2025-12-25T22:36:18.718+08:00  WARN 15120 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController': Lookup method resolution failed
+2025-12-25T22:36:18.718+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:36:18.754+08:00  INFO 15120 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:36:18.771+08:00 ERROR 15120 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController': Lookup method resolution failed
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:498) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.determineCandidateConstructors(AutowiredAnnotationBeanPostProcessor.java:368) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.determineConstructorsFromBeanPostProcessors(AbstractAutowireCapableBeanFactory.java:1314) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1209) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.example.demo.controller.AdminController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@7610f8d4]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalMethods(ReflectionUtils.java:320) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.checkLookupMethods(AutowiredAnnotationBeanPostProcessor.java:476) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 22 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/model/Admin
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3578) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2676) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-6.1.14.jar:6.1.14]
+	... 24 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.model.Admin
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 28 common frames omitted
+
+2025-12-25T22:36:21.244+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:21.245+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:21.476+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:21.476+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:21.481+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:21.481+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:21.482+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:21.503+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:21.503+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 257 ms
+2025-12-25T22:36:21.668+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 49b51bed-0449-4596-892c-433c79b8ed98
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:36:21.669+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:36:21.819+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:36:21.858+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:36:21.861+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.643 seconds (process running for 872.947)
+2025-12-25T22:36:21.863+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:36:21.948+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:36:21.948+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:36:21.948+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:36:27.325+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25T22:36:27.387+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:27.387+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:27.501+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:27.501+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:27.501+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:27.502+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:27.502+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:27.510+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:27.510+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 122 ms
+2025-12-25T22:36:27.593+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 9fdf6e64-b0fb-4164-ab8e-5da3c1227f0f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:36:27.594+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:36:27.638+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:36:27.653+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:36:27.656+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.281 seconds (process running for 878.74)
+2025-12-25T22:36:27.657+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:36:28.882+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-4] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:36:28.882+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:36:28.882+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:36:30.078+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25T22:36:30.179+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:30.180+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:30.417+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:30.417+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:30.418+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:30.418+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:30.418+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:30.434+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:30.434+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 253 ms
+2025-12-25T22:36:30.482+08:00  WARN 15120 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController': Unsatisfied dependency expressed through field 'adminService': Error creating bean with name 'adminService': Unsatisfied dependency expressed through field 'baseMapper': Error creating bean with name 'adminMapper' defined in file [D:\rear\demo\target\classes\com\example\demo\mapper\AdminMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+2025-12-25T22:36:30.482+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:36:30.513+08:00  INFO 15120 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:36:30.513+08:00 ERROR 15120 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController': Unsatisfied dependency expressed through field 'adminService': Error creating bean with name 'adminService': Unsatisfied dependency expressed through field 'baseMapper': Error creating bean with name 'adminMapper' defined in file [D:\rear\demo\target\classes\com\example\demo\mapper\AdminMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminService': Unsatisfied dependency expressed through field 'baseMapper': Error creating bean with name 'adminMapper' defined in file [D:\rear\demo\target\classes\com\example\demo\mapper\AdminMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:788) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:768) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:145) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessProperties(AutowiredAnnotationBeanPostProcessor.java:509) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1439) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 23 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminMapper' defined in file [D:\rear\demo\target\classes\com\example\demo\mapper\AdminMapper.class]: Cannot resolve reference to bean 'sqlSessionTemplate' while setting bean property 'sqlSessionTemplate'
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:377) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:135) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1705) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1454) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:599) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.resolveFieldValue(AutowiredAnnotationBeanPostProcessor.java:785) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 37 common frames omitted
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'sqlSessionTemplate' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Unsatisfied dependency expressed through method 'sqlSessionTemplate' parameter 0: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\rear\demo\target\classes\mybatis\mapper\UserMapper.xml]'
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:795) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:542) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:365) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 50 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'sqlSessionFactory' defined in class path resource [com/baomidou/mybatisplus/autoconfigure/MybatisPlusAutoConfiguration.class]: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\rear\demo\target\classes\mybatis\mapper\UserMapper.xml]'
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:648) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:636) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1355) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1185) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:254) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1443) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1353) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:904) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:782) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 60 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.ibatis.session.SqlSessionFactory]: Factory method 'sqlSessionFactory' threw exception with message: Failed to parse mapping resource: 'file [D:\rear\demo\target\classes\mybatis\mapper\UserMapper.xml]'
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:178) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:644) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 74 common frames omitted
+Caused by: java.io.IOException: Failed to parse mapping resource: 'file [D:\rear\demo\target\classes\mybatis\mapper\UserMapper.xml]'
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.buildSqlSessionFactory(MybatisSqlSessionFactoryBean.java:670) ~[mybatis-plus-spring-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.afterPropertiesSet(MybatisSqlSessionFactoryBean.java:543) ~[mybatis-plus-spring-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.getObject(MybatisSqlSessionFactoryBean.java:701) ~[mybatis-plus-spring-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration.sqlSessionFactory(MybatisPlusAutoConfiguration.java:213) ~[mybatis-plus-spring-boot-autoconfigure-3.5.9.jar:3.5.9]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:146) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 75 common frames omitted
+Caused by: java.lang.TypeNotPresentException: Type com.example.demo.model.User not present
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:125) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.reifyTypeArguments(Reifier.java:68) ~[na:na]
+	at java.base/sun.reflect.generics.visitor.Reifier.visitClassTypeSignature(Reifier.java:138) ~[na:na]
+	at java.base/sun.reflect.generics.tree.ClassTypeSignature.accept(ClassTypeSignature.java:49) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ClassRepository.computeSuperInterfaces(ClassRepository.java:117) ~[na:na]
+	at java.base/sun.reflect.generics.repository.ClassRepository.getSuperInterfaces(ClassRepository.java:95) ~[na:na]
+	at java.base/java.lang.Class.getGenericInterfaces(Class.java:1296) ~[na:na]
+	at org.springframework.core.ResolvableType.getInterfaces(ResolvableType.java:517) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.core.ResolvableType.as(ResolvableType.java:465) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.core.GenericTypeResolver.resolveTypeArguments(GenericTypeResolver.java:139) ~[spring-core-6.1.14.jar:6.1.14]
+	at com.baomidou.mybatisplus.core.toolkit.reflect.SpringReflectionHelper.resolveTypeArguments(SpringReflectionHelper.java:30) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.toolkit.reflect.GenericTypeUtils.resolveTypeArguments(GenericTypeUtils.java:51) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.toolkit.ReflectionKit.getSuperClassGenericType(ReflectionKit.java:102) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.injector.AbstractSqlInjector.inspectInject(AbstractSqlInjector.java:45) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.MybatisMapperAnnotationBuilder.parserInjector(MybatisMapperAnnotationBuilder.java:126) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.MybatisMapperAnnotationBuilder.parse(MybatisMapperAnnotationBuilder.java:116) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.MybatisMapperRegistry.addMapper(MybatisMapperRegistry.java:90) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.MybatisConfiguration.addMapper(MybatisConfiguration.java:129) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.MybatisXMLMapperBuilder.bindMapperForNamespace(MybatisXMLMapperBuilder.java:401) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.core.MybatisXMLMapperBuilder.parse(MybatisXMLMapperBuilder.java:104) ~[mybatis-plus-core-3.5.9.jar:3.5.9]
+	at com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean.buildSqlSessionFactory(MybatisSqlSessionFactoryBean.java:668) ~[mybatis-plus-spring-3.5.9.jar:3.5.9]
+	... 81 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.model.User
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at java.base/sun.reflect.generics.factory.CoreReflectionFactory.makeNamedType(CoreReflectionFactory.java:114) ~[na:na]
+	... 103 common frames omitted
+
+2025-12-25T22:36:33.017+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:33.017+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:33.274+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:33.275+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:33.275+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:33.275+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:33.276+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:33.307+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:33.309+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 288 ms
+2025-12-25T22:36:33.448+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ef3e1d35-0e7d-49c0-8aeb-a981d183be76
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:36:33.450+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:36:33.556+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:36:33.592+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:36:33.592+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.614 seconds (process running for 884.679)
+2025-12-25T22:36:33.598+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:36:33.884+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:36:33.885+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:36:33.885+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:36:54.338+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25T22:36:54.406+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:54.406+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:54.513+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:54.513+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:54.514+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:54.514+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:54.514+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:54.530+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:54.530+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 123 ms
+2025-12-25T22:36:54.614+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: f31ca439-3693-4d4a-9f22-cb1c0ca45c65
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:36:54.614+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:36:54.657+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:36:54.672+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:36:54.674+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.279 seconds (process running for 905.75)
+2025-12-25T22:36:54.674+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:36:54.938+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:36:54.938+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:36:54.940+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-12-25T22:36:57.092+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25T22:36:57.207+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:57.207+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:57.444+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:57.444+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:57.444+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:57.444+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:57.444+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:57.468+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-2].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:57.468+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 261 ms
+2025-12-25T22:36:57.480+08:00  WARN 15120 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\AdminController.class]: Post-processing of merged bean definition failed
+2025-12-25T22:36:57.480+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:36:57.516+08:00  INFO 15120 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:36:57.523+08:00 ERROR 15120 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\AdminController.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.example.demo.controller.AdminController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@56b2d4cb]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 18 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/AdminService
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3473) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2542) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752) ~[spring-core-6.1.14.jar:6.1.14]
+	... 24 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.AdminService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 28 common frames omitted
+
+2025-12-25T22:36:58.965+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:36:58.965+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:36:59.171+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:36:59.171+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:36:59.171+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:36:59.176+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:36:59.176+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:36:59.201+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:36:59.201+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 236 ms
+2025-12-25T22:36:59.341+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: ef56abcc-672a-4c18-8392-448debc5a018
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:36:59.341+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:36:59.426+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:36:59.462+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:36:59.468+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.528 seconds (process running for 910.545)
+2025-12-25T22:36:59.468+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:36:59.656+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:36:59.656+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:36:59.656+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:37:24.211+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25T22:37:24.326+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:37:24.326+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:37:24.583+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:37:24.584+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:37:24.584+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:37:24.585+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:37:24.585+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:37:24.604+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-3].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:37:24.604+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 278 ms
+2025-12-25T22:37:24.617+08:00  WARN 15120 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\AdminController.class]: Post-processing of merged bean definition failed
+2025-12-25T22:37:24.617+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:37:24.659+08:00  INFO 15120 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:37:24.661+08:00 ERROR 15120 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\AdminController.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.example.demo.controller.AdminController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@79837f2]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 18 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/AdminService
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3473) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2542) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752) ~[spring-core-6.1.14.jar:6.1.14]
+	... 24 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.AdminService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 28 common frames omitted
+
+2025-12-25T22:37:26.102+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:37:26.102+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:37:26.328+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:37:26.329+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:37:26.329+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:37:26.329+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:37:26.329+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:37:26.356+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-4].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:37:26.356+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 254 ms
+2025-12-25T22:37:26.356+08:00  WARN 15120 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\AdminController.class]: Post-processing of merged bean definition failed
+2025-12-25T22:37:26.356+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:37:26.418+08:00  INFO 15120 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:37:26.418+08:00 ERROR 15120 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\AdminController.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.example.demo.controller.AdminController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@cd4b641]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 18 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/AdminService
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3473) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2542) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752) ~[spring-core-6.1.14.jar:6.1.14]
+	... 24 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.AdminService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 28 common frames omitted
+
+2025-12-25T22:37:28.902+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:37:28.902+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:37:29.076+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:37:29.076+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:37:29.076+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:37:29.076+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:37:29.076+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:37:29.087+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:37:29.087+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 185 ms
+2025-12-25T22:37:29.233+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 79900809-78b1-4e42-8ae1-dbc92920fd6d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:37:29.233+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:37:29.278+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:37:29.297+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:37:29.299+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.42 seconds (process running for 940.366)
+2025-12-25T22:37:29.300+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:37:29.401+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:37:29.401+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:37:29.401+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:37:32.763+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25T22:37:32.841+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:37:32.842+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:37:32.967+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:37:32.967+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:37:32.967+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:37:32.967+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:37:32.967+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:37:32.977+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:37:32.977+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 134 ms
+2025-12-25T22:37:33.074+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 968761dd-a92c-4ddc-836a-e2b7e7b78dff
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:37:33.075+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:37:33.121+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:37:33.136+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:37:33.138+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.309 seconds (process running for 944.205)
+2025-12-25T22:37:33.140+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:37:33.902+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:37:33.902+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:37:33.902+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:37:35.559+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25T22:37:35.679+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:37:35.679+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:37:35.917+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:37:35.917+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:37:35.917+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:37:35.917+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:37:35.917+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:37:35.947+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-5].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:37:35.947+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 262 ms
+2025-12-25T22:37:35.959+08:00  WARN 15120 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\AdminController.class]: Post-processing of merged bean definition failed
+2025-12-25T22:37:35.959+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:37:36.004+08:00  INFO 15120 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:37:36.007+08:00 ERROR 15120 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'adminController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\AdminController.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.example.demo.controller.AdminController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@1de43605]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 18 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/AdminService
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3473) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2542) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752) ~[spring-core-6.1.14.jar:6.1.14]
+	... 24 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.AdminService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 28 common frames omitted
+
+2025-12-25T22:37:38.486+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:37:38.486+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:37:38.709+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:37:38.709+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:37:38.709+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:37:38.709+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:37:38.709+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:37:38.722+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-6].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:37:38.722+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 236 ms
+2025-12-25T22:37:38.863+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: b5a3ec8a-cc85-421d-bedb-921f26592b67
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:37:38.863+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:37:38.936+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:37:38.984+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:37:38.987+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.533 seconds (process running for 950.052)
+2025-12-25T22:37:38.988+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:37:39.163+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-6].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:37:39.163+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:37:39.163+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:38:46.431+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
+2025-12-25T22:38:46.528+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:38:46.528+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:38:46.641+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:38:46.641+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:38:46.642+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:38:46.642+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:38:46.642+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:38:46.669+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-6].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:38:46.669+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 140 ms
+2025-12-25T22:38:46.839+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: cc68671d-dd77-4b9f-bd0e-f7e3ce0659db
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:38:46.839+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:38:46.961+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:38:46.991+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:38:46.997+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.479 seconds (process running for 1018.044)
+2025-12-25T22:38:46.997+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:38:48.392+08:00  INFO 15120 --- [demo] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2025-12-25T22:38:48.549+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:38:48.550+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:38:48.778+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:38:48.778+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:38:48.780+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:38:48.780+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:38:48.780+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:38:48.799+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-6].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:38:48.799+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 249 ms
+2025-12-25T22:38:48.906+08:00  WARN 15120 --- [demo] [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\LoginController.class]: Post-processing of merged bean definition failed
+2025-12-25T22:38:48.906+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2025-12-25T22:38:48.956+08:00  INFO 15120 --- [demo] [restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-12-25T22:38:48.961+08:00 ERROR 15120 --- [demo] [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'loginController' defined in file [D:\rear\demo\target\classes\com\example\demo\controller\LoginController.class]: Post-processing of merged bean definition failed
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:577) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:337) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:335) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:200) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:971) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:625) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:335) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1363) ~[spring-boot-3.3.5.jar:3.3.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1352) ~[spring-boot-3.3.5.jar:3.3.5]
+	at com.example.demo.DemoApplication.main(DemoApplication.java:9) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:50) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [com.example.demo.controller.LoginController] from ClassLoader [org.springframework.boot.devtools.restart.classloader.RestartClassLoader@760ceb2]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:757) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.util.ReflectionUtils.doWithLocalFields(ReflectionUtils.java:689) ~[spring-core-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.buildResourceMetadata(CommonAnnotationBeanPostProcessor.java:431) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.findResourceMetadata(CommonAnnotationBeanPostProcessor.java:412) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.context.annotation.CommonAnnotationBeanPostProcessor.postProcessMergedBeanDefinition(CommonAnnotationBeanPostProcessor.java:312) ~[spring-context-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyMergedBeanDefinitionPostProcessors(AbstractAutowireCapableBeanFactory.java:1103) ~[spring-beans-6.1.14.jar:6.1.14]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:574) ~[spring-beans-6.1.14.jar:6.1.14]
+	... 18 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: com/example/demo/service/UserService
+	at java.base/java.lang.Class.getDeclaredFields0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredFields(Class.java:3473) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredFields(Class.java:2542) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredFields(ReflectionUtils.java:752) ~[spring-core-6.1.14.jar:6.1.14]
+	... 24 common frames omitted
+Caused by: java.lang.ClassNotFoundException: com.example.demo.service.UserService
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[na:na]
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	at java.base/java.lang.Class.forName0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:534) ~[na:na]
+	at java.base/java.lang.Class.forName(Class.java:513) ~[na:na]
+	at org.springframework.boot.devtools.restart.classloader.RestartClassLoader.loadClass(RestartClassLoader.java:121) ~[spring-boot-devtools-3.3.5.jar:3.3.5]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:526) ~[na:na]
+	... 28 common frames omitted
+
+2025-12-25T22:38:51.417+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication using Java 21.0.8 with PID 15120 (D:\rear\demo\target\classes started by 30302 in D:\rear\demo)
+2025-12-25T22:38:51.417+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2025-12-25T22:38:51.639+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2025-12-25T22:38:51.639+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [2.0.9] using APR version [1.7.6].
+2025-12-25T22:38:51.639+08:00  INFO 15120 --- [demo] [restartedMain] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 3.5.0 8 Apr 2025]
+2025-12-25T22:38:51.639+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-25T22:38:51.639+08:00  INFO 15120 --- [demo] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+2025-12-25T22:38:51.677+08:00  INFO 15120 --- [demo] [restartedMain] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2025-12-25T22:38:51.677+08:00  INFO 15120 --- [demo] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 260 ms
+2025-12-25T22:38:51.828+08:00  WARN 15120 --- [demo] [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 075779b9-7dfc-4e6c-a894-625ce6925dfa
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-12-25T22:38:51.829+08:00  INFO 15120 --- [demo] [restartedMain] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-12-25T22:38:51.925+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-25T22:38:51.960+08:00  INFO 15120 --- [demo] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2025-12-25T22:38:51.961+08:00  INFO 15120 --- [demo] [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 0.562 seconds (process running for 1023.011)
+2025-12-25T22:38:51.968+08:00  INFO 15120 --- [demo] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2025-12-25T22:38:51.991+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.a.c.c.C.[Tomcat-7].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-12-25T22:38:51.991+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-12-25T22:38:51.991+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2025-12-25T22:39:34.279+08:00  WARN 15120 --- [demo] [http-nio-8081-exec-6] com.zaxxer.hikari.HikariConfig           : HikariPool-2 - idleTimeout is close to or more than maxLifetime, disabling it.
+2025-12-25T22:39:34.279+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2025-12-25T22:39:34.296+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-6] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6ed6559e
+2025-12-25T22:39:34.296+08:00  INFO 15120 --- [demo] [http-nio-8081-exec-6] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2025-12-25T22:39:34.302+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2025-12-25T22:39:34.314+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: 1(String)
+2025-12-25T22:39:34.326+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 0
+2025-12-25T22:39:54.753+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-7] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2025-12-25T22:39:54.754+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-7] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: admin(String)
+2025-12-25T22:39:54.758+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-7] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:39:54.758+08:00  WARN 15120 --- [demo] [http-nio-8081-exec-7] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2025-12-25T22:40:17.076+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2025-12-25T22:40:17.077+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: admin(String)
+2025-12-25T22:40:17.079+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-9] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:40:17.079+08:00  WARN 15120 --- [demo] [http-nio-8081-exec-9] o.s.s.c.bcrypt.BCryptPasswordEncoder     : Encoded password does not look like BCrypt
+2025-12-25T22:40:48.907+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectCount  : ==>  Preparing: SELECT COUNT( * ) AS total FROM users WHERE (username = ?)
+2025-12-25T22:40:48.907+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectCount  : ==> Parameters: ggb(String)
+2025-12-25T22:40:48.913+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.selectCount  : <==      Total: 1
+2025-12-25T22:40:49.046+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.insert       : ==>  Preparing: INSERT INTO users ( username, role, nickname, password_hash, gender, phone_number, birthday, avatar_url ) VALUES ( ?, ?, ?, ?, ?, ?, ?, ? )
+2025-12-25T22:40:49.052+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.insert       : ==> Parameters: ggb(String), admin(String), ggb(String), $2a$10$12Psmpe8FMbK6Lb.sspVEOl/BjPORVNKPu2/1dYsqECt/gZT/UARG(String), 1(Integer), 1234(String), 2025-12-05(String), /images/default-avatar.png(String)
+2025-12-25T22:40:49.070+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-4] c.e.demo.mapper.AdminMapper.insert       : <==    Updates: 1
+2025-12-25T22:41:01.545+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (username = ?)
+2025-12-25T22:41:01.546+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: ggb(String)
+2025-12-25T22:41:01.548+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 1
+2025-12-25T22:41:01.684+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.updateById   : ==>  Preparing: UPDATE users SET username=?, role=?, nickname=?, password_hash=?, gender=?, phone_number=?, birthday=?, avatar_url=?, last_login_time=? WHERE id=?
+2025-12-25T22:41:01.688+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.updateById   : ==> Parameters: ggb(String), admin(String), ggb(String), $2a$10$12Psmpe8FMbK6Lb.sspVEOl/BjPORVNKPu2/1dYsqECt/gZT/UARG(String), 1(Integer), 1234(String), 2025-12-05(String), /images/default-avatar.png(String), 2025-12-25 22:41:01.678(Timestamp), 2(Integer)
+2025-12-25T22:41:01.700+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-3] c.e.demo.mapper.AdminMapper.updateById   : <==    Updates: 1
+2025-12-25T22:41:02.578+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectById   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE id=?
+2025-12-25T22:41:02.579+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectById   : ==> Parameters: 2(Integer)
+2025-12-25T22:41:02.582+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectById   : <==      Total: 1
+2025-12-25T22:41:02.610+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectById   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE id=?
+2025-12-25T22:41:02.612+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectById   : ==> Parameters: 2(Integer)
+2025-12-25T22:41:02.614+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectById   : <==      Total: 1
+2025-12-25T22:41:02.622+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (role = ?) ORDER BY id DESC
+2025-12-25T22:41:02.623+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: user(String)
+2025-12-25T22:41:02.624+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-8] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 0
+2025-12-25T22:41:13.767+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.updateById   : ==>  Preparing: UPDATE users SET nickname=?, gender=?, phone_number=?, avatar_url=? WHERE id=?
+2025-12-25T22:41:13.768+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.updateById   : ==> Parameters: ggb(String), 1(Integer), 1234(String), /images/c4eb794f-c208-4ef6-a751-cce216513477.png(String), 2(Integer)
+2025-12-25T22:41:13.781+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.updateById   : <==    Updates: 1
+2025-12-25T22:49:35.252+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectById   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE id=?
+2025-12-25T22:49:35.252+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectById   : ==> Parameters: 2(Integer)
+2025-12-25T22:49:35.253+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-6] c.e.demo.mapper.AdminMapper.selectById   : <==      Total: 1
+2025-12-25T22:49:35.257+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : ==>  Preparing: SELECT id,username,role,nickname,password_hash AS password,gender,phone_number AS phone,birthday,avatar_url,last_login_time FROM users WHERE (role = ?) ORDER BY id DESC
+2025-12-25T22:49:35.257+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : ==> Parameters: user(String)
+2025-12-25T22:49:35.257+08:00 DEBUG 15120 --- [demo] [http-nio-8081-exec-5] c.e.demo.mapper.AdminMapper.selectList   : <==      Total: 0
+2025-12-25T23:10:15.984+08:00  INFO 15120 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2025-12-25T23:10:15.985+08:00  INFO 15120 --- [demo] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

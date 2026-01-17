@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 全局配置参数，相关的参数参照myBatis文档 -->
+    <settings>
+        <!-- 是否开启缓存 -->
+        <setting name="cacheEnabled" value="true"/>
+        <!--是否开启二级缓存-->
+        <!-- <setting name="cacheEnabled" value="true"/> -->
+        <!-- 是否开启延迟加载 -->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--将积极加载修改成消极加载-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!--采用SLF4J输出调试信息-->
+        <setting name="logImpl" value="slf4j"/>
+        <!--自动映射，数据库下划线命名转为Java的驼峰命名方式: 字段user_id 转为属性UserID-->
+        <setting name="mapUnderscoreToCamelCase" value="true" />
+    </settings>
+</configuration>
