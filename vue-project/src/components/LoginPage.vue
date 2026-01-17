@@ -105,16 +105,16 @@ const refreshCaptcha = () => {
 }
 
 
-// --- 登录逻辑 (保持不变) ---
 const handleLogin = async () => {
+  // 1. 客户端校验验证码
   if (!form.value.captcha) {
     alert('请输入验证码！');
     return;
   }
   if (form.value.captcha.toLowerCase() !== correctCaptchaCode.value.toLowerCase()) {
     alert('验证码错误！');
-    refreshCaptcha();
-    form.value.captcha = '';
+    refreshCaptcha(); // 刷新验证码
+    form.value.captcha = ''; // 清空输入框
     return;
   }
 
@@ -125,21 +125,52 @@ const handleLogin = async () => {
   }
 
   try {
+    // 2. 发起 POST 请求
     const response = await axios.post(
       'http://localhost:8081/api/login',
-      loginData,
-      { withCredentials: true } // [!!] 关键：添加这一行
+      loginData
+      // { withCredentials: true } // 如果完全改用 Token 且不操作 Cookie，这行可以去掉
     );
+
     if (response.data.success) {
+      // ============================================
+      // [核心修改] 登录成功后的 Token 处理逻辑
+      // ============================================
+
+      // 1. 获取后端返回的 Token
+      const token = response.data.token;
+
+      if (token) {
+        // 2. 将 Token 存入 localStorage (长期存储，直到手动清除)
+        // 这样 axios 拦截器就能读取到了
+        localStorage.setItem('token', token);
+
+        // 3. (可选) 将用户信息也存入 localStorage，方便页面展示名字
+        if (response.data.userData) {
+          localStorage.setItem('user', JSON.stringify(response.data.userData));
+        }
+      } else {
+        console.warn('登录成功但未返回 Token，请检查后端代码');
+      }
+
       alert(response.data.message);
+
+      // 4. 跳转到仪表盘
       router.push('/dashboard');
+
     } else {
+      // 登录失败 (账号密码错误等)
       alert(response.data.message);
       refreshCaptcha();
     }
   } catch (error) {
     console.error('登录请求失败:', error);
-    alert('登录失败，无法连接到服务器。请检查后端是否已启动，以及CORS配置。');
+    // 区分一下是网络错误还是后端返回的错误状态码
+    if (error.response) {
+      alert(`登录失败: ${error.response.status} ${error.response.statusText}`);
+    } else {
+      alert('登录失败，无法连接到服务器。请检查后端是否已启动。');
+    }
     refreshCaptcha();
   }
 }
