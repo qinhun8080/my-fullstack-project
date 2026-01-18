@@ -9,17 +9,15 @@ const _sfc_main = {
       loggingIn: false,
       showPassword: false,
       rememberMe: false
-      // 新增记住我状态
     };
   },
   methods: {
     togglePasswordVisibility() {
       this.showPassword = !this.showPassword;
     },
-    // 切换记住我
     handleCheckboxChange(e) {
       this.rememberMe = e.detail.value.length > 0;
-      common_vendor.index.__f__("log", "at pages/login/login.vue:95", "记住我状态:", this.rememberMe);
+      common_vendor.index.__f__("log", "at pages/login/login.vue:94", "记住我状态:", this.rememberMe);
     },
     showPasswordTip() {
       common_vendor.index.showToast({ title: "密码建议功能开发中", icon: "none" });
@@ -33,16 +31,24 @@ const _sfc_main = {
       common_vendor.index.request({
         url: API_BASE_URL + "/login",
         method: "POST",
+        // [原有逻辑已恢复] 保持 Session/Cookie 传递能力
         withCredentials: true,
+        header: {
+          // 显式指定 JSON，防止部分环境默认表单提交
+          "content-type": "application/json"
+        },
         data: {
           username: this.username,
           password: this.password,
+          // [原有逻辑已恢复] 传递记住我状态
           rememberMe: this.rememberMe
-          // 现在传递真实状态
         },
         success: (res) => {
-          common_vendor.index.__f__("log", "at pages/login/login.vue:118", "登录结果:", res.data);
+          common_vendor.index.__f__("log", "at pages/login/login.vue:123", "登录结果:", res.data);
           if (res.data && res.data.success) {
+            if (res.data.token) {
+              common_vendor.index.setStorageSync("token", res.data.token);
+            }
             common_vendor.index.setStorageSync("hasLogin", true);
             common_vendor.index.setStorageSync("userInfo", res.data.userData);
             common_vendor.index.showToast({ title: "登录成功", icon: "success" });
@@ -59,7 +65,7 @@ const _sfc_main = {
           }
         },
         fail: (err) => {
-          common_vendor.index.__f__("error", "at pages/login/login.vue:136", "请求失败:", err);
+          common_vendor.index.__f__("error", "at pages/login/login.vue:150", "请求失败:", err);
           common_vendor.index.showToast({ title: "无法连接服务器", icon: "none" });
         },
         complete: () => {
@@ -68,16 +74,10 @@ const _sfc_main = {
       });
     },
     goToRegister() {
-      common_vendor.index.navigateTo({
-        // 请确保这里的文件路径与你在 pages.json 中配置的一致
-        // 如果你的注册页面叫 register.vue，请改为 '/pages/register/register'
-        url: "/pages/login/register"
-      });
+      common_vendor.index.navigateTo({ url: "/pages/login/register" });
     },
     goToForgotPassword() {
-      common_vendor.index.navigateTo({
-        url: "/pages/login/forgot-password"
-      });
+      common_vendor.index.navigateTo({ url: "/pages/login/forgot-password" });
     }
   }
 };

@@ -1,6 +1,5 @@
 <template>
 	<view class="container">
-		<!-- 顶部用户信息卡片 -->
 		<view class="header-card">
 			<view class="avatar-section">
 				<view class="avatar-container">
@@ -18,7 +17,6 @@
 			</view>
 		</view>
 
-		<!-- 用户信息列表 -->
 		<view class="info-list card">
 			<view class="list-header">
 				<text class="list-title">个人信息</text>
@@ -54,7 +52,6 @@
 			</view>
 		</view>
 
-		<!-- 退出登录按钮 -->
 		<view class="action-section">
 			<button class="logout-btn" @click="handleLogout">
 				<text class="btn-text">退出登录</text>
@@ -78,6 +75,8 @@
 			// 计算完整的头像 URL
 			fullAvatarUrl() {
 				if (this.userInfo.avatarUrl) {
+					// 兼容处理：如果数据库存的是完整http链接就不拼接，否则拼接
+					if (this.userInfo.avatarUrl.startsWith('http')) return this.userInfo.avatarUrl;
 					// 数据库存的是 /images/xxx.jpg，我们需要拼接 http://ip:8081
 					return API_BASE_URL + this.userInfo.avatarUrl;
 				}
@@ -97,8 +96,10 @@
 		},
 		methods: {
 			fetchLatestUserInfo() {
-				// 1. 获取本地存储的用户ID
+				// 1. 获取本地存储的用户ID 和 Token [修改点]
 				const localUser = uni.getStorageSync('userInfo');
+				const token = uni.getStorageSync('token'); // 获取 Token
+
 				if (!localUser || !localUser.id) {
 					uni.reLaunch({ url: '/pages/login/login' });
 					return;
@@ -109,12 +110,19 @@
 					url: API_BASE_URL + '/api/user/info',
 					method: 'GET',
 					data: { id: localUser.id },
+					// [修改点] 添加 Header 携带 Token
+					header: {
+						'Authorization': token ? 'Bearer ' + token : ''
+					},
 					success: (res) => {
 						if (res.data.success) {
 							this.userInfo = res.data.data;
 							// 更新本地缓存，保持同步
 							uni.setStorageSync('userInfo', this.userInfo);
 						}
+					},
+					fail: (err) => {
+						console.error('获取用户信息失败', err);
 					}
 				});
 			},
@@ -131,6 +139,7 @@
 						if (res.confirm) {
 							uni.removeStorageSync('userInfo');
 							uni.removeStorageSync('hasLogin');
+							uni.removeStorageSync('token'); // [修改点] 清除 Token
 							uni.reLaunch({ url: '/pages/login/login' });
 						}
 					}

@@ -126,7 +126,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $data.historyAlerts.length === 0 ? {} : {}, {
     x: common_vendor.f($data.historyAlerts, (item, index, i0) => {
       return {
-        a: "2e764eba-5-" + i0,
+        a: "9658e22c-5-" + i0,
         b: common_vendor.t(item),
         c: index
       };

@@ -12,6 +12,8 @@ const _sfc_main = {
     // 计算完整的头像 URL
     fullAvatarUrl() {
       if (this.userInfo.avatarUrl) {
+        if (this.userInfo.avatarUrl.startsWith("http"))
+          return this.userInfo.avatarUrl;
         return API_BASE_URL + this.userInfo.avatarUrl;
       }
       return DEFAULT_AVATAR;
@@ -32,6 +34,7 @@ const _sfc_main = {
   methods: {
     fetchLatestUserInfo() {
       const localUser = common_vendor.index.getStorageSync("userInfo");
+      const token = common_vendor.index.getStorageSync("token");
       if (!localUser || !localUser.id) {
         common_vendor.index.reLaunch({ url: "/pages/login/login" });
         return;
@@ -40,11 +43,18 @@ const _sfc_main = {
         url: API_BASE_URL + "/api/user/info",
         method: "GET",
         data: { id: localUser.id },
+        // [修改点] 添加 Header 携带 Token
+        header: {
+          "Authorization": token ? "Bearer " + token : ""
+        },
         success: (res) => {
           if (res.data.success) {
             this.userInfo = res.data.data;
             common_vendor.index.setStorageSync("userInfo", this.userInfo);
           }
+        },
+        fail: (err) => {
+          common_vendor.index.__f__("error", "at pages/profile/profile.vue:125", "获取用户信息失败", err);
         }
       });
     },
@@ -61,6 +71,7 @@ const _sfc_main = {
           if (res.confirm) {
             common_vendor.index.removeStorageSync("userInfo");
             common_vendor.index.removeStorageSync("hasLogin");
+            common_vendor.index.removeStorageSync("token");
             common_vendor.index.reLaunch({ url: "/pages/login/login" });
           }
         }

@@ -71,6 +71,7 @@
 </template>
 
 <script>
+  // 确保 IP 地址正确
   const API_BASE_URL = 'http://127.0.0.1:8081/api';
 
   export default {
@@ -80,20 +81,18 @@
         password: '',
         loggingIn: false,
         showPassword: false,
-        rememberMe: false // 新增记住我状态
+        rememberMe: false
       }
     },
     methods: {
       togglePasswordVisibility() {
         this.showPassword = !this.showPassword;
       },
-      // 切换记住我
       handleCheckboxChange(e) {
-          // uni-app 的 checkbox-group 返回的 detail.value 是一个数组
-          // 如果数组有值，说明被选中了；如果是空数组，说明取消选中
+          // 你的原有逻辑：判断数组长度
           this.rememberMe = e.detail.value.length > 0;
           console.log('记住我状态:', this.rememberMe);
-        },
+      },
       showPasswordTip() {
         uni.showToast({ title: '密码建议功能开发中', icon: 'none' });
       },
@@ -108,18 +107,33 @@
         uni.request({
           url: API_BASE_URL + '/login',
           method: 'POST',
+          // [原有逻辑已恢复] 保持 Session/Cookie 传递能力
           withCredentials: true, 
+          header: {
+             // 显式指定 JSON，防止部分环境默认表单提交
+            'content-type': 'application/json'
+          },
           data: {
             username: this.username,
             password: this.password,
-            rememberMe: this.rememberMe // 现在传递真实状态
+            // [原有逻辑已恢复] 传递记住我状态
+            rememberMe: this.rememberMe 
           },
           success: (res) => {
             console.log('登录结果:', res.data);
             if (res.data && res.data.success) {
+              
+              // 1. [新增] 必须存储 Token 才能让后续接口鉴权通过
+              if (res.data.token) {
+                 uni.setStorageSync('token', res.data.token);
+              }
+              
+              // 2. 你的原有存储逻辑
               uni.setStorageSync('hasLogin', true);
               uni.setStorageSync('userInfo', res.data.userData);
+              
               uni.showToast({ title: '登录成功', icon: 'success' });
+              
               setTimeout(() => {
                 uni.switchTab({
                   url: '/pages/index/index'
@@ -141,18 +155,12 @@
           },
         });
       },
-	  goToRegister() {
-	          uni.navigateTo({
-	            // 请确保这里的文件路径与你在 pages.json 中配置的一致
-	            // 如果你的注册页面叫 register.vue，请改为 '/pages/register/register'
-	            url: '/pages/login/register' 
-	          });
-	        },
-		goToForgotPassword() {
-		    uni.navigateTo({
-		      url: '/pages/login/forgot-password'
-		    });
-		  },
+      goToRegister() {
+          uni.navigateTo({ url: '/pages/login/register' });
+      },
+      goToForgotPassword() {
+          uni.navigateTo({ url: '/pages/login/forgot-password' });
+      },
     }
   }
 </script>
