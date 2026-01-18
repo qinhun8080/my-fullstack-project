@@ -77,21 +77,36 @@ const _sfc_main = {
     // 3. 执行文件上传
     uploadAvatar(filePath) {
       common_vendor.index.showLoading({ title: "上传中..." });
+      const token = common_vendor.index.getStorageSync("token");
       common_vendor.index.uploadFile({
         url: API_BASE_URL + "/api/upload",
-        // 你的后端上传接口
         filePath,
         name: "file",
+        // 【关键修复】加上 header 携带 Token
+        header: {
+          "Authorization": token ? "Bearer " + token : ""
+        },
         success: (uploadRes) => {
-          const data = JSON.parse(uploadRes.data);
-          if (data.success) {
-            this.form.avatarUrl = data.filePath;
-            common_vendor.index.showToast({ title: "上传成功", icon: "none" });
-          } else {
-            common_vendor.index.showToast({ title: "上传失败", icon: "none" });
+          common_vendor.index.__f__("log", "at pages/profile-edit/profile-edit.vue:173", "上传结果:", uploadRes);
+          if (uploadRes.statusCode !== 200) {
+            common_vendor.index.showToast({ title: "上传失败: " + uploadRes.statusCode, icon: "none" });
+            return;
+          }
+          try {
+            const data = JSON.parse(uploadRes.data);
+            if (data.success) {
+              this.form.avatarUrl = data.filePath;
+              common_vendor.index.showToast({ title: "图片上传成功", icon: "none" });
+            } else {
+              common_vendor.index.showToast({ title: data.message || "上传后端报错", icon: "none" });
+            }
+          } catch (e) {
+            common_vendor.index.__f__("error", "at pages/profile-edit/profile-edit.vue:193", "解析上传结果失败", e);
+            common_vendor.index.showToast({ title: "解析失败", icon: "none" });
           }
         },
-        fail: () => {
+        fail: (err) => {
+          common_vendor.index.__f__("error", "at pages/profile-edit/profile-edit.vue:198", "网络上传错误", err);
           common_vendor.index.showToast({ title: "网络错误", icon: "none" });
         },
         complete: () => {
@@ -114,29 +129,40 @@ const _sfc_main = {
         return;
       }
       this.isSubmitting = true;
-      const postData = {
-        ...this.form
-      };
+      const postData = { ...this.form };
       if (!postData.password) {
         postData.password = null;
+      }
+      const token = common_vendor.index.getStorageSync("token");
+      let authHeader = token;
+      if (token && !token.startsWith("Bearer ")) {
+        authHeader = "Bearer " + token;
       }
       common_vendor.index.request({
         url: API_BASE_URL + "/api/user/update",
         method: "POST",
+        header: {
+          // 1. 确保 Content-Type 正确
+          "Content-Type": "application/json",
+          // 2. 确保 Authorization 格式是 "Bearer xxxxx"
+          "Authorization": authHeader
+        },
         data: postData,
         success: (res) => {
-          if (res.data.success) {
+          common_vendor.index.__f__("log", "at pages/profile-edit/profile-edit.vue:254", "后端返回:", res);
+          if (res.statusCode === 200 && res.data.success) {
             common_vendor.index.showToast({ title: "保存成功" });
             common_vendor.index.setStorageSync("userInfo", res.data.data);
             setTimeout(() => {
               this.onCancel();
             }, 1500);
           } else {
-            common_vendor.index.showToast({ title: res.data.message || "保存失败", icon: "none" });
+            common_vendor.index.showToast({ title: res.data.message || "保存失败:" + res.statusCode, icon: "none" });
           }
         },
-        fail: () => {
-          common_vendor.index.showToast({ title: "请求失败，请检查网络", icon: "none" });
+        fail: (err) => {
+          common_vendor.index.__f__("error", "at pages/profile-edit/profile-edit.vue:265", "请求失败:", err);
+          common_vendor.index.showToast({ title: "网络请求失败", icon: "none" });
         },
         complete: () => {
           this.isSubmitting = false;

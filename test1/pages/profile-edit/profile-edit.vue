@@ -155,29 +155,53 @@
 
 			// 3. 执行文件上传
 			uploadAvatar(filePath) {
-				uni.showLoading({ title: '上传中...' });
-				uni.uploadFile({
-					url: API_BASE_URL + '/api/upload', // 你的后端上传接口
-					filePath: filePath,
-					name: 'file',
-					success: (uploadRes) => {
-						// uploadFile 返回的是 String，需要手动 parse
-						const data = JSON.parse(uploadRes.data);
-						if (data.success) {
-							// 后端返回相对路径 "/images/uuid.jpg"
-							this.form.avatarUrl = data.filePath;
-							uni.showToast({ title: '上传成功', icon: 'none' });
-						} else {
-							uni.showToast({ title: '上传失败', icon: 'none' });
-						}
-					},
-					fail: () => {
-						uni.showToast({ title: '网络错误', icon: 'none' });
-					},
-					complete: () => {
-						uni.hideLoading();
-					}
-				});
+			    uni.showLoading({ title: '上传中...' });
+			    
+			    // 1. 获取 Token
+			    const token = uni.getStorageSync('token'); 
+			    
+			    uni.uploadFile({
+			        url: API_BASE_URL + '/api/upload',
+			        filePath: filePath,
+			        name: 'file',
+			        // 【关键修复】加上 header 携带 Token
+			        header: {
+			            'Authorization': token ? ('Bearer ' + token) : '' 
+			        },
+			        success: (uploadRes) => {
+			            // 调试：打印看看后端返回了什么
+			            console.log('上传结果:', uploadRes);
+			            
+			            // 判断 HTTP 状态码
+			            if (uploadRes.statusCode !== 200) {
+			                 uni.showToast({ title: '上传失败: ' + uploadRes.statusCode, icon: 'none' });
+			                 return;
+			            }
+			
+			            try {
+			                // uploadFile 返回的 data 是 String，必须 parse
+			                const data = JSON.parse(uploadRes.data);
+			                
+			                if (data.success) {
+			                    // 更新本地表单数据的头像路径
+			                    this.form.avatarUrl = data.filePath;
+			                    uni.showToast({ title: '图片上传成功', icon: 'none' });
+			                } else {
+			                    uni.showToast({ title: data.message || '上传后端报错', icon: 'none' });
+			                }
+			            } catch (e) {
+			                console.error('解析上传结果失败', e);
+			                uni.showToast({ title: '解析失败', icon: 'none' });
+			            }
+			        },
+			        fail: (err) => {
+			            console.error('网络上传错误', err);
+			            uni.showToast({ title: '网络错误', icon: 'none' });
+			        },
+			        complete: () => {
+			            uni.hideLoading();
+			        }
+			    });
 			},
 
 			// 4. 性别选择器回调
@@ -192,49 +216,59 @@
 
 			// 6. 提交保存
 			onSubmit() {
-				// --- 简单校验 ---
-				if (this.form.password && this.form.password !== this.confirmPassword) {
-					uni.showToast({ title: '两次输入的密码不一致', icon: 'none' });
-					return;
-				}
-				
-				this.isSubmitting = true;
-
-				// 构建提交的数据 (如果不修改密码，发送 null 或空串给后端)
-				// 注意：这里我们不发送 username，因为一般不允许改帐号
-				const postData = {
-					...this.form
-				};
-				// 如果密码为空，后端逻辑会忽略它
-				if (!postData.password) {
-					postData.password = null;
-				}
-
-				uni.request({
-					url: API_BASE_URL + '/api/user/update',
-					method: 'POST',
-					data: postData,
-					success: (res) => {
-						if (res.data.success) {
-							uni.showToast({ title: '保存成功' });
-							// 更新本地缓存
-							uni.setStorageSync('userInfo', res.data.data);
-							
-							// 1.5秒后返回上一页
-							setTimeout(() => {
-								this.onCancel();
-							}, 1500);
-						} else {
-							uni.showToast({ title: res.data.message || '保存失败', icon: 'none' });
-						}
-					},
-					fail: () => {
-						uni.showToast({ title: '请求失败，请检查网络', icon: 'none' });
-					},
-					complete: () => {
-						this.isSubmitting = false;
-					}
-				});
+			    // --- 简单校验 ---
+			    if (this.form.password && this.form.password !== this.confirmPassword) {
+			        uni.showToast({ title: '两次输入的密码不一致', icon: 'none' });
+			        return;
+			    }
+			    
+			    this.isSubmitting = true;
+			
+			    const postData = { ...this.form };
+			    if (!postData.password) {
+			        postData.password = null;
+			    }
+			
+			    // 【新增】从缓存获取 Token (请确认你登录时存的 key 是 'token' 还是 'Authorization')
+			    // 假设你登录成功后是这样存的：uni.setStorageSync('token', 'Bearer xxxxx...')
+			
+			    const token = uni.getStorageSync('token'); // 确保 key 正确
+			    
+			    // 【修复核心】：处理 Bearer 前缀
+			    let authHeader = token;
+			    if (token && !token.startsWith('Bearer ')) {
+			        authHeader = 'Bearer ' + token;
+			    }
+			    
+			    uni.request({
+			        url: API_BASE_URL + '/api/user/update',
+			        method: 'POST',
+			        header: {
+			            // 1. 确保 Content-Type 正确
+			            'Content-Type': 'application/json', 
+			            // 2. 确保 Authorization 格式是 "Bearer xxxxx"
+			            'Authorization': authHeader 
+			        },
+			        data: postData,
+			        success: (res) => {
+			            console.log('后端返回:', res); // 方便调试
+			            if (res.statusCode === 200 && res.data.success) {
+			                uni.showToast({ title: '保存成功' });
+			                uni.setStorageSync('userInfo', res.data.data);
+			                setTimeout(() => { this.onCancel(); }, 1500);
+			            } else {
+			                // 提示具体的错误信息
+			                uni.showToast({ title: res.data.message || ('保存失败:' + res.statusCode), icon: 'none' });
+			            }
+			        },
+			        fail: (err) => {
+			            console.error('请求失败:', err);
+			            uni.showToast({ title: '网络请求失败', icon: 'none' });
+			        },
+			        complete: () => {
+			            this.isSubmitting = false;
+			        }
+			    });
 			},
 
 			onCancel() {
