@@ -592,45 +592,40 @@ const fetchUserList = async () => {
 
 const checkSession = async () => {
   try {
-    // [修改 1] 改用 axios.get，不用手动传 credentials，拦截器会自动处理 Token
-    // [修改 2] 接口地址改为 /user/me (对应后端 LoginController)
-    const response = await axios.get('/api/user/me')
+    const response = await axios.get('/api/user/me') // 使用拦截器自动带 Token
     const data = response.data
 
-    // [注意] 这里假设你的后端 /user/me 接口已经按照建议修改，
-    // 返回结构包含了 userData: { id, username, ... }
     if (data.loggedIn && data.userData) {
       const u = data.userData
-
-      // 1. 处理头像路径
       const displayAvatar = resolveAvatarUrl(u.avatarUrl)
 
-      // 2. 更新本地状态
       userInfo.value = {
         id: u.id,
         username: u.username,
         nickname: u.nickname || u.username || '未设置昵称',
         phone: u.phone,
-        // 性别转换: 后端 1->male, 0->female
         gender: u.gender === 1 ? 'male' : (u.gender === 0 ? 'female' : 'other'),
         avatar: displayAvatar,
         adminId: `NO.${u.id}`,
         lastLoginTime: new Date().toLocaleString()
       }
-      console.log('用户信息加载成功:', userInfo.value)
     } else {
-      // 登录状态无效
-      console.warn('后端返回未登录状态:', data)
-      router.push('/login')
+      // [!!关键!!] 后端说没登录，说明 Token 无效了，必须删掉！
+      console.warn('Session 无效，强制清理')
+      forceLogout() 
     }
   } catch (e) {
-    console.error('Session 检查失败详细错误:', e)
-    if (e.response && e.response.status !== 401) {
-      alert(`Session 检查失败 (代码 ${e.response.status})，请检查后端控制台`);
-      return;
-    }
-    router.push('/login')
+    console.error('Session 检查失败:', e)
+    // 401 在 main.js 会被拦截，但其他错误也建议清理
+    forceLogout()
   }
+}
+
+// 提取一个公用的强制退出函数
+const forceLogout = () => {
+  localStorage.removeItem('token')
+  localStorage.removeItem('user')
+  router.push('/login')
 }
 
 // --- 组件挂载 ---
@@ -883,17 +878,14 @@ const handleUserEditSubmit = async () => {
   };
 
   try {
-    const response = await fetch(`${API_BASE_URL}/admin/user/update`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const data = await response.json();
+    // [修改] 改用 axios.post，路径去掉 baseURL (main.js已配置)，不需要手动写 header
+    const response = await axios.post('/admin/user/update', payload);
+    const data = response.data; // axios 直接拿 .data
 
     if (data.success) {
       alert('用户信息修改成功！');
-      closeUserEditModal(); // 关闭弹窗
-      fetchUserList(); // 刷新列表
+      closeUserEditModal();
+      fetchUserList();
     } else {
       alert('修改失败: ' + data.message);
     }
@@ -909,12 +901,8 @@ const handleUserDeleteFromModal = async (user) => {
   }
 
   try {
-    const response = await fetch(`${API_BASE_URL}/admin/user/delete`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ id: user.id }) // 发送 ID
-    });
-    const data = await response.json();
+    const response = await axios.post('/admin/user/delete', { id: user.id });
+    const data = response.data;
 
     if (data.success) {
       alert('用户已删除');
@@ -948,12 +936,8 @@ const handleAddUserSubmit = async () => {
   };
 
   try {
-    const response = await fetch(`${API_BASE_URL}/admin/user/add`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    const data = await response.json();
+   const response = await axios.post('/admin/user/add', payload);
+    const data = response.data;
 
     if (data.success) {
       alert('新增用户成功！');
@@ -993,17 +977,20 @@ watch(showProductModal, (newVal) => {
 // --- 退出登录 ---
 const handleLogout = async () => {
   if (!confirm('您确定要退出登录吗？')) return
+  
   try {
-    const response = await fetch(`${API_BASE_URL}/logout`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
-    })
-    if (dataTimer) clearInterval(dataTimer)
-    router.push('/login')
+    // 1. 调用后端退出接口 (使用 axios，不要用 fetch)
+    // 注意：即使后端由 Stateless 模式不需要这一步，调用一下也无妨
+    await axios.post('/logout')
   } catch (error) {
-    console.error('退出登录时发生错误:', error)
-    router.push('/login') // 即使报错也强制跳转
+    console.warn('后端退出接口调用失败，但这不重要，前端强制下线:', error)
+  } finally {
+    // [!!关键!!] 2. 无论后端成功与否，前端必须彻底清除 Token
+    localStorage.removeItem('token')
+    localStorage.removeItem('user') // 如果你存了这个也删掉
+    
+    // 3. 跳转回登录页
+    router.push('/login')
   }
 }
 </script>

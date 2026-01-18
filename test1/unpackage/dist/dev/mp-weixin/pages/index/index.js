@@ -8,6 +8,9 @@ const _sfc_main = {
       humi: "--",
       distance: "--",
       deviceStatus: "查询中...",
+      // [修改点 2] 初始化经纬度数据 (默认给一个坐标，防止报错)
+      latitude: 39.909,
+      longitude: 116.397,
       historyAlerts: [],
       showHistoryModal: false,
       showCallModal: false,
@@ -33,6 +36,23 @@ const _sfc_main = {
     }
   },
   methods: {
+    // [修改点 3] 新增打开地图的方法
+    openLocation() {
+      const lat = parseFloat(this.latitude);
+      const lon = parseFloat(this.longitude);
+      if (isNaN(lat) || isNaN(lon)) {
+        common_vendor.index.showToast({ title: "无有效定位信息", icon: "none" });
+        return;
+      }
+      common_vendor.index.openLocation({
+        latitude: lat,
+        longitude: lon,
+        name: "导盲杖当前位置",
+        // 地点名称
+        scale: 18
+        // 缩放比例 (5-18)
+      });
+    },
     openHistoryModal() {
       this.showHistoryModal = true;
       this.showCallModal = false;
@@ -55,13 +75,17 @@ const _sfc_main = {
             this.temp = res.data.temp;
             this.humi = res.data.humi;
             this.distance = res.data.distance;
+            if (res.data.latitude && res.data.longitude) {
+              this.latitude = res.data.latitude;
+              this.longitude = res.data.longitude;
+            }
             if (res.data.historyAlerts) {
               this.historyAlerts = res.data.historyAlerts;
             }
           }
         },
         fail: (err) => {
-          common_vendor.index.__f__("error", "at pages/index/index.vue:160", "API请求失败:", err);
+          common_vendor.index.__f__("error", "at pages/index/index.vue:195", "API请求失败:", err);
         }
       });
     }
@@ -95,62 +119,68 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     g: common_vendor.t($data.humi),
     h: $data.humi !== "--"
   }, $data.humi !== "--" ? {} : {}, {
-    i: common_vendor.t($data.distance),
-    j: $data.distance !== "--"
+    i: common_vendor.p({
+      type: "paperplane-filled",
+      size: "24",
+      color: "#19be6b"
+    }),
+    j: common_vendor.o((...args) => $options.openLocation && $options.openLocation(...args)),
+    k: common_vendor.t($data.distance),
+    l: $data.distance !== "--"
   }, $data.distance !== "--" ? {} : {}, {
-    k: $options.isDanger ? 1 : "",
-    l: common_vendor.p({
+    m: $options.isDanger ? 1 : "",
+    n: common_vendor.p({
       type: "phone-filled",
       size: "24",
       color: "#3498db"
     }),
-    m: common_vendor.o((...args) => $options.openCallModal && $options.openCallModal(...args)),
-    n: $data.historyAlerts.length > 0
+    o: common_vendor.o((...args) => $options.openCallModal && $options.openCallModal(...args)),
+    p: $data.historyAlerts.length > 0
   }, $data.historyAlerts.length > 0 ? {
-    o: common_vendor.t($data.historyAlerts.length)
+    q: common_vendor.t($data.historyAlerts.length)
   } : {}, {
-    p: common_vendor.o((...args) => $options.openHistoryModal && $options.openHistoryModal(...args)),
-    q: $data.showHistoryModal || $data.showCallModal
+    r: common_vendor.o((...args) => $options.openHistoryModal && $options.openHistoryModal(...args)),
+    s: $data.showHistoryModal || $data.showCallModal
   }, $data.showHistoryModal || $data.showCallModal ? {
-    r: common_vendor.o((...args) => $options.closeAllModals && $options.closeAllModals(...args))
+    t: common_vendor.o((...args) => $options.closeAllModals && $options.closeAllModals(...args))
   } : {}, {
-    s: $data.showHistoryModal
+    v: $data.showHistoryModal
   }, $data.showHistoryModal ? common_vendor.e({
-    t: common_vendor.o($options.closeAllModals),
-    v: common_vendor.p({
+    w: common_vendor.o($options.closeAllModals),
+    x: common_vendor.p({
       type: "closeempty",
       size: "24",
       color: "#999"
     }),
-    w: $data.historyAlerts.length === 0
+    y: $data.historyAlerts.length === 0
   }, $data.historyAlerts.length === 0 ? {} : {}, {
-    x: common_vendor.f($data.historyAlerts, (item, index, i0) => {
+    z: common_vendor.f($data.historyAlerts, (item, index, i0) => {
       return {
-        a: "9658e22c-5-" + i0,
+        a: "9658e22c-6-" + i0,
         b: common_vendor.t(item),
         c: index
       };
     }),
-    y: common_vendor.p({
+    A: common_vendor.p({
       type: "info-filled",
       color: "#ff4d4f",
       size: "18"
     }),
-    z: common_vendor.o((...args) => $options.closeAllModals && $options.closeAllModals(...args))
+    B: common_vendor.o((...args) => $options.closeAllModals && $options.closeAllModals(...args))
   }) : {}, {
-    A: $data.showCallModal
+    C: $data.showCallModal
   }, $data.showCallModal ? {
-    B: common_vendor.p({
+    D: common_vendor.p({
       type: "person-filled",
       size: "50",
       color: "#fff"
     }),
-    C: common_vendor.p({
+    E: common_vendor.p({
       type: "phone-filled",
       size: "30",
       color: "#fff"
     }),
-    D: common_vendor.o((...args) => $options.closeAllModals && $options.closeAllModals(...args))
+    F: common_vendor.o((...args) => $options.closeAllModals && $options.closeAllModals(...args))
   } : {});
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render]]);

@@ -31,8 +31,9 @@
 		</view>
 
 		<view class="grid-container">
-			<view class="grid-item card">
+            <view class="grid-item card" @click="openLocation">
 				<text class="grid-text">查看位置</text>
+                <uni-icons type="paperplane-filled" size="24" color="#19be6b" style="margin-top: 10rpx;"></uni-icons>
 			</view>
 			
 			<view class="grid-item card">
@@ -104,6 +105,11 @@
 				humi: '--',
 				distance: '--', 
 				deviceStatus: '查询中...',
+                
+                // [修改点 2] 初始化经纬度数据 (默认给一个坐标，防止报错)
+                latitude: 39.909,
+                longitude: 116.397,
+
 				historyAlerts: [], 
 				showHistoryModal: false,
 				showCallModal: false,
@@ -129,6 +135,27 @@
 			}
 		},
 		methods: {
+            // [修改点 3] 新增打开地图的方法
+            openLocation() {
+                // 将字符串转为数字
+                const lat = parseFloat(this.latitude);
+                const lon = parseFloat(this.longitude);
+                
+                // 简单的合法性检查
+                if (isNaN(lat) || isNaN(lon)) {
+                    uni.showToast({ title: '无有效定位信息', icon: 'none' });
+                    return;
+                }
+
+                // 调用 uniapp 自带的查看位置接口
+                uni.openLocation({
+                    latitude: lat,
+                    longitude: lon,
+                    name: '导盲杖当前位置', // 地点名称
+                    scale: 18 // 缩放比例 (5-18)
+                });
+            },
+
 			openHistoryModal() {
 				this.showHistoryModal = true;
 				this.showCallModal = false;
@@ -151,6 +178,14 @@
 							this.temp = res.data.temp;
 							this.humi = res.data.humi;
 							this.distance = res.data.distance; 
+                            
+                            // [修改点 4] 从后端混合数据中接收经纬度
+                            // 注意：后端合并后的 Map 里 key 是 latitude 和 longitude
+                            if (res.data.latitude && res.data.longitude) {
+                                this.latitude = res.data.latitude;
+                                this.longitude = res.data.longitude;
+                            }
+
 							if (res.data.historyAlerts) {
 								this.historyAlerts = res.data.historyAlerts;
 							}
