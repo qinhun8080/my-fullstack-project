@@ -1,5 +1,6 @@
 "use strict";
 const common_vendor = require("../../common/vendor.js");
+const common_assets = require("../../common/assets.js");
 const API_BASE_URL = "http://127.0.0.1:8081/api";
 const _sfc_main = {
   data() {
@@ -41,7 +42,10 @@ const _sfc_main = {
       const lat = parseFloat(this.latitude);
       const lon = parseFloat(this.longitude);
       if (isNaN(lat) || isNaN(lon)) {
-        common_vendor.index.showToast({ title: "无有效定位信息", icon: "none" });
+        common_vendor.index.showToast({
+          title: "无有效定位信息",
+          icon: "none"
+        });
         return;
       }
       common_vendor.index.openLocation({
@@ -85,7 +89,7 @@ const _sfc_main = {
           }
         },
         fail: (err) => {
-          common_vendor.index.__f__("error", "at pages/index/index.vue:195", "API请求失败:", err);
+          common_vendor.index.__f__("error", "at pages/index/index.vue:197", "API请求失败:", err);
         }
       });
     }
@@ -97,11 +101,7 @@ if (!Array) {
 }
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return common_vendor.e({
-    a: common_vendor.p({
-      type: "map-pin-ellipse",
-      size: "22",
-      color: "#333"
-    }),
+    a: common_assets._imports_0,
     b: common_vendor.p({
       type: "search",
       size: "18",
@@ -156,7 +156,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   }, $data.historyAlerts.length === 0 ? {} : {}, {
     z: common_vendor.f($data.historyAlerts, (item, index, i0) => {
       return {
-        a: "9658e22c-6-" + i0,
+        a: "9658e22c-5-" + i0,
         b: common_vendor.t(item),
         c: index
       };

@@ -17,14 +17,20 @@ const _sfc_main = {
     },
     handleCheckboxChange(e) {
       this.rememberMe = e.detail.value.length > 0;
-      common_vendor.index.__f__("log", "at pages/login/login.vue:94", "记住我状态:", this.rememberMe);
+      common_vendor.index.__f__("log", "at pages/login/login.vue:83", "记住我状态:", this.rememberMe);
     },
     showPasswordTip() {
-      common_vendor.index.showToast({ title: "密码建议功能开发中", icon: "none" });
+      common_vendor.index.showToast({
+        title: "密码建议功能开发中",
+        icon: "none"
+      });
     },
     handleLogin() {
       if (!this.username || !this.password) {
-        common_vendor.index.showToast({ title: "请输入账号和密码", icon: "none" });
+        common_vendor.index.showToast({
+          title: "请输入账号和密码",
+          icon: "none"
+        });
         return;
       }
       this.loggingIn = true;
@@ -44,14 +50,17 @@ const _sfc_main = {
           rememberMe: this.rememberMe
         },
         success: (res) => {
-          common_vendor.index.__f__("log", "at pages/login/login.vue:123", "登录结果:", res.data);
+          common_vendor.index.__f__("log", "at pages/login/login.vue:118", "登录结果:", res.data);
           if (res.data && res.data.success) {
             if (res.data.token) {
               common_vendor.index.setStorageSync("token", res.data.token);
             }
             common_vendor.index.setStorageSync("hasLogin", true);
             common_vendor.index.setStorageSync("userInfo", res.data.userData);
-            common_vendor.index.showToast({ title: "登录成功", icon: "success" });
+            common_vendor.index.showToast({
+              title: "登录成功",
+              icon: "success"
+            });
             setTimeout(() => {
               common_vendor.index.switchTab({
                 url: "/pages/index/index"
@@ -65,8 +74,11 @@ const _sfc_main = {
           }
         },
         fail: (err) => {
-          common_vendor.index.__f__("error", "at pages/login/login.vue:150", "请求失败:", err);
-          common_vendor.index.showToast({ title: "无法连接服务器", icon: "none" });
+          common_vendor.index.__f__("error", "at pages/login/login.vue:148", "请求失败:", err);
+          common_vendor.index.showToast({
+            title: "无法连接服务器",
+            icon: "none"
+          });
         },
         complete: () => {
           this.loggingIn = false;
@@ -74,10 +86,14 @@ const _sfc_main = {
       });
     },
     goToRegister() {
-      common_vendor.index.navigateTo({ url: "/pages/login/register" });
+      common_vendor.index.navigateTo({
+        url: "/pages/login/register"
+      });
     },
     goToForgotPassword() {
-      common_vendor.index.navigateTo({ url: "/pages/login/forgot-password" });
+      common_vendor.index.navigateTo({
+        url: "/pages/login/forgot-password"
+      });
     }
   }
 };
@@ -95,7 +111,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     f: common_vendor.p({
       type: $data.showPassword ? "eye-filled" : "eye-slash-filled",
       size: "20",
-      color: "#6b7280"
+      color: "#c0c4cc"
     }),
     g: common_vendor.o((...args) => $options.togglePasswordVisibility && $options.togglePasswordVisibility(...args)),
     h: $data.rememberMe,
@@ -109,7 +125,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     p: common_vendor.p({
       type: "star",
       size: "14",
-      color: "#6366f1"
+      color: "#1890FF"
     }),
     q: common_vendor.o((...args) => $options.showPasswordTip && $options.showPasswordTip(...args))
   };

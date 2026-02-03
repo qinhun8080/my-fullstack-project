@@ -82,7 +82,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     h: common_vendor.p({
       type: $data.showPassword ? "eye-filled" : "eye-slash-filled",
       size: "20",
-      color: "#6b7280"
+      color: "#c0c4cc"
     }),
     i: common_vendor.o(($event) => $data.showPassword = !$data.showPassword),
     j: !$data.showConfirmPassword,
@@ -91,7 +91,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     m: common_vendor.p({
       type: $data.showConfirmPassword ? "eye-filled" : "eye-slash-filled",
       size: "20",
-      color: "#6b7280"
+      color: "#c0c4cc"
     }),
     n: common_vendor.o(($event) => $data.showConfirmPassword = !$data.showConfirmPassword),
     o: common_vendor.t($data.isSubmitting ? "重置中..." : "确认重置"),

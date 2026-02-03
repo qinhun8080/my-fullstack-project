@@ -2,6 +2,7 @@
   <div class="admin-layout">
     <aside class="sidebar">
       <div class="sidebar-header">
+        <img src="../assets/Gemini_Generated_Image_n5w7aan5w7aan5w7.png" class="sidebar-logo" alt="Logo">
         <h1 class="sidebar-title">智能设备终端<br />管理系统</h1>
       </div>
       <nav class="sidebar-nav">
@@ -612,7 +613,7 @@ const checkSession = async () => {
     } else {
       // [!!关键!!] 后端说没登录，说明 Token 无效了，必须删掉！
       console.warn('Session 无效，强制清理')
-      forceLogout() 
+      forceLogout()
     }
   } catch (e) {
     console.error('Session 检查失败:', e)
@@ -936,7 +937,7 @@ const handleAddUserSubmit = async () => {
   };
 
   try {
-   const response = await axios.post('/admin/user/add', payload);
+    const response = await axios.post('/admin/user/add', payload);
     const data = response.data;
 
     if (data.success) {
@@ -977,7 +978,7 @@ watch(showProductModal, (newVal) => {
 // --- 退出登录 ---
 const handleLogout = async () => {
   if (!confirm('您确定要退出登录吗？')) return
-  
+
   try {
     // 1. 调用后端退出接口 (使用 axios，不要用 fetch)
     // 注意：即使后端由 Stateless 模式不需要这一步，调用一下也无妨
@@ -988,7 +989,7 @@ const handleLogout = async () => {
     // [!!关键!!] 2. 无论后端成功与否，前端必须彻底清除 Token
     localStorage.removeItem('token')
     localStorage.removeItem('user') // 如果你存了这个也删掉
-    
+
     // 3. 跳转回登录页
     router.push('/login')
   }
@@ -1091,6 +1092,41 @@ const handleLogout = async () => {
 
 .sidebar-nav li {
   margin: 0 16px 12px;
+}
+
+.sidebar-logo {
+  width: 70px;
+  /* 稍微加大一点尺寸，看起来更大气 */
+  height: 70px;
+  /* 强制正方形 */
+  border-radius: 50%;
+  /* 核心：变圆 */
+  object-fit: cover;
+  /* 防止图片变形 */
+
+  /* 美化部分 */
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  /* 半透明白色边框 */
+  background-color: white;
+  /* 如果你的图片是透明底，加个白底会更清晰 */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* 柔和的投影 */
+  margin-bottom: 16px;
+  /* 调整下边距 */
+
+  /* 动效 */
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* 有弹性的过渡 */
+}
+
+/* 鼠标放上去时的可爱动效 */
+.sidebar-header:hover .sidebar-logo {
+  transform: scale(1.1) rotate(5deg);
+  /* 放大并微微旋转 */
+  border-color: #ffffff;
+  /* 边框变亮 */
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+  /* 发出蓝色的光晕 */
 }
 
 .nav-item {

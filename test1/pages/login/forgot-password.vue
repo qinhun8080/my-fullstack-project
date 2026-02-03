@@ -9,29 +9,33 @@
         
         <view class="input-group">
           <text class="label">用户名</text>
-          <input 
-            class="input-field" 
-            v-model="form.username" 
-            placeholder="请输入您的用户名" 
-            placeholder-class="placeholder-style" 
-          />
+          <view class="input-wrapper">
+            <input 
+              class="input-field" 
+              v-model="form.username" 
+              placeholder="请输入您的用户名" 
+              placeholder-class="placeholder-style" 
+            />
+          </view>
         </view>
 
         <view class="input-group">
           <text class="label">预留手机号</text>
-          <input 
-            class="input-field" 
-            v-model="form.phone" 
-            type="number"
-            maxlength="11"
-            placeholder="请输入注册时绑定的手机号" 
-            placeholder-class="placeholder-style" 
-          />
+          <view class="input-wrapper">
+            <input 
+              class="input-field" 
+              v-model="form.phone" 
+              type="number"
+              maxlength="11"
+              placeholder="请输入注册时绑定的手机号" 
+              placeholder-class="placeholder-style" 
+            />
+          </view>
         </view>
 
         <view class="input-group">
           <text class="label">新密码</text>
-          <view class="password-wrapper">
+          <view class="input-wrapper">
             <input 
               class="input-field" 
               :password="!showPassword" 
@@ -40,14 +44,14 @@
               placeholder-class="placeholder-style" 
             />
             <view class="password-toggle" @click="showPassword = !showPassword">
-              <uni-icons :type="showPassword ? 'eye-filled' : 'eye-slash-filled'" size="20" color="#6b7280"></uni-icons>
+              <uni-icons :type="showPassword ? 'eye-filled' : 'eye-slash-filled'" size="20" color="#c0c4cc"></uni-icons>
             </view>
           </view>
         </view>
 
         <view class="input-group">
           <text class="label">确认新密码</text>
-          <view class="password-wrapper">
+          <view class="input-wrapper">
             <input 
               class="input-field" 
               :password="!showConfirmPassword" 
@@ -56,7 +60,7 @@
               placeholder-class="placeholder-style" 
             />
             <view class="password-toggle" @click="showConfirmPassword = !showConfirmPassword">
-              <uni-icons :type="showConfirmPassword ? 'eye-filled' : 'eye-slash-filled'" size="20" color="#6b7280"></uni-icons>
+              <uni-icons :type="showConfirmPassword ? 'eye-filled' : 'eye-slash-filled'" size="20" color="#c0c4cc"></uni-icons>
             </view>
           </view>
         </view>
@@ -157,110 +161,71 @@
 </script>
 
 <style lang="scss" scoped>
-  /* * 直接复用 Login.vue 的样式 
-   * 确保风格完全一致
-   */
+  /* 容器样式保持不变 */
   .container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f2f5; 
+    background: #f0f2f5; 
+    position: relative;
     padding: 20rpx;
   }
-
   .login-card {
     background: #ffffff;
     width: 100%;
     max-width: 650rpx;
     padding: 60rpx 40rpx;
     border-radius: 24rpx;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 12rpx 32rpx rgba(0, 0, 0, 0.05);
+    z-index: 1;
+  }
+  .header { margin-bottom: 40rpx; text-align: center; }
+  .title { font-size: 40rpx; font-weight: bold; color: #333; }
+  
+  .input-group { margin-bottom: 30rpx; }
+  .label { display: block; margin-bottom: 12rpx; font-size: 28rpx; font-weight: 600; color: #606266; }
+
+  /* --- 核心修改：增强输入框样式 --- */
+  .input-wrapper {
+      display: flex;
+      align-items: center;
+      /* 背景色加深一点，与纯白卡片区分 */
+      background: #f5f7fa; 
+      /* 增加极细边框 */
+      border: 2rpx solid #e4e7ed; 
+      border-radius: 12rpx;
+      padding: 0 24rpx;
+      height: 96rpx;
+      transition: all 0.3s;
+  }
+  
+  /* 聚焦时的状态：变白、蓝边框、微发光 */
+  .input-wrapper:focus-within {
+      background: #ffffff;
+      border-color: #1890FF;
+      box-shadow: 0 0 0 6rpx rgba(24, 144, 255, 0.1);
   }
 
-  .header {
-    margin-bottom: 40rpx;
-    text-align: center;
-  }
+  .input-field { flex: 1; height: 100%; font-size: 30rpx; color: #333; }
+  .placeholder-style { color: #c0c4cc; }
+  .password-toggle { padding: 10rpx; display: flex; align-items: center; }
 
-  .title {
-    font-size: 40rpx;
-    font-weight: bold;
-    color: #111827;
-  }
-
-  .input-group {
-    margin-bottom: 30rpx;
-  }
-
-  .label {
-    display: block;
-    margin-bottom: 12rpx;
-    font-size: 28rpx;
-    font-weight: 500;
-    color: #6b7280;
-  }
-
-  .input-field {
-    width: 100%;
-    height: 90rpx;
-    padding: 0 20rpx;
-    border: 2rpx solid #d1d5db;
-    border-radius: 12rpx;
-    font-size: 30rpx;
-    color: #333;
-    box-sizing: border-box;
-    background-color: #fff;
-  }
-
-  .placeholder-style {
-    color: #9ca3af;
-  }
-
-  .password-wrapper {
-    position: relative;
-    width: 100%;
-  }
-
-  .password-toggle {
-    position: absolute;
-    right: 20rpx;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    padding: 10rpx;
-  }
-
+  /* 按钮样式微调 */
   .login-btn {
-    background-color: #6366f1;
+    background: linear-gradient(135deg, #3B9DFF 0%, #1890FF 100%);
     color: white;
     font-size: 32rpx;
     font-weight: 600;
-    border-radius: 16rpx;
+    border-radius: 48rpx;
     height: 96rpx;
     line-height: 96rpx;
+    box-shadow: 0 8rpx 16rpx rgba(24, 144, 255, 0.25);
     border: none;
-    margin-top: 20rpx; /* 调整间距 */
-    margin-bottom: 30rpx;
-    transition: opacity 0.2s;
-
-    &:active {
-      opacity: 0.9;
-    }
-    &.loading {
-      opacity: 0.7;
-    }
+    margin-top: 30rpx;
+    margin-bottom: 40rpx;
   }
-
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    margin-top: 10rpx;
-  }
-
-  .footer-link {
-    font-size: 28rpx;
-    color: #6366f1;
-    font-weight: 500;
-  }
+  .login-btn:active { opacity: 0.9; transform: scale(0.99); }
+  .footer-links { display: flex; justify-content: center; }
+  .footer-link { font-size: 28rpx; color: #1890FF; font-weight: 500; }
 </style>

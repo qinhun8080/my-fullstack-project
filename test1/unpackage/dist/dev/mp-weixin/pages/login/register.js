@@ -16,9 +16,18 @@ const _sfc_main = {
       },
       // 性别选择器配置
       genderOptions: [
-        { label: "男", value: 1 },
-        { label: "女", value: 0 },
-        { label: "其他", value: 2 }
+        {
+          label: "男",
+          value: 1
+        },
+        {
+          label: "女",
+          value: 0
+        },
+        {
+          label: "其他",
+          value: 2
+        }
       ],
       genderIndex: -1,
       // picker 的索引
@@ -46,11 +55,20 @@ const _sfc_main = {
     },
     handleUserRegister() {
       if (!this.form.username)
-        return common_vendor.index.showToast({ title: "请输入账号", icon: "none" });
+        return common_vendor.index.showToast({
+          title: "请输入账号",
+          icon: "none"
+        });
       if (!this.form.password)
-        return common_vendor.index.showToast({ title: "请输入密码", icon: "none" });
+        return common_vendor.index.showToast({
+          title: "请输入密码",
+          icon: "none"
+        });
       if (this.form.password !== this.form.confirmPassword) {
-        return common_vendor.index.showToast({ title: "两次密码不一致", icon: "none" });
+        return common_vendor.index.showToast({
+          title: "两次密码不一致",
+          icon: "none"
+        });
       }
       this.isSubmitting = true;
       common_vendor.index.request({
@@ -67,17 +85,26 @@ const _sfc_main = {
         },
         success: (res) => {
           if (res.data && res.data.success) {
-            common_vendor.index.showToast({ title: "注册成功", icon: "success" });
+            common_vendor.index.showToast({
+              title: "注册成功",
+              icon: "success"
+            });
             setTimeout(() => {
               this.goToLogin();
             }, 1500);
           } else {
-            common_vendor.index.showToast({ title: res.data.message || "注册失败", icon: "none" });
+            common_vendor.index.showToast({
+              title: res.data.message || "注册失败",
+              icon: "none"
+            });
           }
         },
         fail: (err) => {
-          common_vendor.index.__f__("error", "at pages/login/register.vue:153", err);
-          common_vendor.index.showToast({ title: "网络请求失败", icon: "none" });
+          common_vendor.index.__f__("error", "at pages/login/register.vue:190", err);
+          common_vendor.index.showToast({
+            title: "网络请求失败",
+            icon: "none"
+          });
         },
         complete: () => {
           this.isSubmitting = false;
@@ -101,35 +128,45 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     g: common_vendor.o((...args) => $options.bindGenderChange && $options.bindGenderChange(...args)),
     h: $data.genderIndex,
     i: $data.genderOptions,
-    j: common_vendor.t($data.form.birthday || "请选择出生日期"),
-    k: !$data.form.birthday ? 1 : "",
-    l: $data.form.birthday,
-    m: common_vendor.o((...args) => $options.bindDateChange && $options.bindDateChange(...args)),
-    n: $data.form.phone,
-    o: common_vendor.o(($event) => $data.form.phone = $event.detail.value),
-    p: !$data.showPassword,
-    q: $data.form.password,
-    r: common_vendor.o(($event) => $data.form.password = $event.detail.value),
-    s: common_vendor.p({
+    j: common_vendor.p({
+      type: "bottom",
+      size: "16",
+      color: "#c0c4cc"
+    }),
+    k: common_vendor.t($data.form.birthday || "请选择出生日期"),
+    l: !$data.form.birthday ? 1 : "",
+    m: $data.form.birthday,
+    n: common_vendor.o((...args) => $options.bindDateChange && $options.bindDateChange(...args)),
+    o: common_vendor.p({
+      type: "calendar",
+      size: "16",
+      color: "#c0c4cc"
+    }),
+    p: $data.form.phone,
+    q: common_vendor.o(($event) => $data.form.phone = $event.detail.value),
+    r: !$data.showPassword,
+    s: $data.form.password,
+    t: common_vendor.o(($event) => $data.form.password = $event.detail.value),
+    v: common_vendor.p({
       type: $data.showPassword ? "eye-filled" : "eye-slash-filled",
       size: "20",
-      color: "#6b7280"
+      color: "#c0c4cc"
     }),
-    t: common_vendor.o(($event) => $data.showPassword = !$data.showPassword),
-    v: !$data.showConfirmPassword,
-    w: $data.form.confirmPassword,
-    x: common_vendor.o(($event) => $data.form.confirmPassword = $event.detail.value),
-    y: common_vendor.p({
+    w: common_vendor.o(($event) => $data.showPassword = !$data.showPassword),
+    x: !$data.showConfirmPassword,
+    y: $data.form.confirmPassword,
+    z: common_vendor.o(($event) => $data.form.confirmPassword = $event.detail.value),
+    A: common_vendor.p({
       type: $data.showConfirmPassword ? "eye-filled" : "eye-slash-filled",
       size: "20",
-      color: "#6b7280"
+      color: "#c0c4cc"
     }),
-    z: common_vendor.o(($event) => $data.showConfirmPassword = !$data.showConfirmPassword),
-    A: common_vendor.t($data.isSubmitting ? "正在注册..." : "注 册"),
-    B: common_vendor.o((...args) => $options.handleUserRegister && $options.handleUserRegister(...args)),
-    C: $data.isSubmitting,
-    D: $data.isSubmitting ? 1 : "",
-    E: common_vendor.o((...args) => $options.goToLogin && $options.goToLogin(...args))
+    B: common_vendor.o(($event) => $data.showConfirmPassword = !$data.showConfirmPassword),
+    C: common_vendor.t($data.isSubmitting ? "正在注册..." : "注 册"),
+    D: common_vendor.o((...args) => $options.handleUserRegister && $options.handleUserRegister(...args)),
+    E: $data.isSubmitting,
+    F: $data.isSubmitting ? 1 : "",
+    G: common_vendor.o((...args) => $options.goToLogin && $options.goToLogin(...args))
   };
 }
 const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-838b72c9"]]);
