@@ -3,7 +3,7 @@
     <aside class="sidebar">
       <div class="sidebar-header">
         <img src="../assets/Gemini_Generated_Image_n5w7aan5w7aan5w7.png" class="sidebar-logo" alt="Logo">
-        <h1 class="sidebar-title">智能设备终端<br />管理系统</h1>
+        <h1 class="sidebar-title">智行物联网智能导盲<br />监测管理系统</h1>
       </div>
       <nav class="sidebar-nav">
         <ul>
